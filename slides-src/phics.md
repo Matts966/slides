@@ -39,7 +39,7 @@ highlightTheme: "darkula"
 
 ### ジェネラティブアートとは
 
-<img src="./images/generative.jpg" style="max-width:40%;" alt="generative_art">
+<img src="images/generative.jpg" style="max-width:40%;" alt="generative_art">
 
 ---
 
