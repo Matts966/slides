@@ -9,8 +9,14 @@ highlightTheme: "darkula"
 #### Graphics Generation Service.
 
 <small>Created by [Masahiro Matsui](https://tech-navy.tech)</small>
-
-<a rel='nofollow' href='https://phics.tech-navy.tech' style='cursor:default;'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fphics.tech-navy.tech&chs=270x270&choe=UTF-8&chld=L|2' alt='https://phics.tech-navy.tech'></a>
+<div style='display:inline-block;'>
+<p>Service</p>
+<a rel='nofollow' href='https://phics.tech-navy.tech' style='cursor:default;'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fphics.tech-navy.tech&chs=210x210&choe=UTF-8&chld=L|2' alt='https://phics.tech-navy.tech' title='Service'></a>
+</div>
+<div style='display:inline-block;'>
+<p>Slide</p>
+<a rel='nofollow' href='https://matts966.github.io/slides/slides-src/phics-export/' style='cursor:default'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fmatts966.github.io%2Fslides%2Fslides-src%2Fphics-export%2F&chs=210x210&choe=UTF-8&chld=L|2' alt='https://matts966.github.io/slides/slides-src/phics-export/' title='Slide'></a>
+</div>
 
 ---
 
