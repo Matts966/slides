@@ -2,6 +2,8 @@
 
 This github project is for publishing my slides using github pages.
 
+You can visit from [here](https://matts966.github.io/slides).
+
 The `index.html` of the root of this project is a symlink to the file in the `slides-src/index-export`.
 
 By editing the file `title.md` in the `slides-src` directory, exporting the markdown file to html using vscode-reveal, and adding the relative link of the exported directory to the index.md,  I can publish my slides.
