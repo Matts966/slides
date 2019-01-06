@@ -1,3 +1,3 @@
 # Slides
 
-[phics](./phics-export/)
+[phics](./slides-src/phics-export/)
