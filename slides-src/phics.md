@@ -160,7 +160,7 @@ p.setup = function () {
 - ユーザーごとの所持画像一覧機能
 - SNS share
 - アイコン
-- PWA対応
+- ~~PWA対応~~
 - カードの種類増やす
 - LP作る
 
@@ -171,3 +171,5 @@ p.setup = function () {
 1. [普及版]ジェネラティブ・アート―Processingによる実践ガイド,　Matt Pearson (著), 久保田 晃弘 (監修), 沖 啓介 (翻訳), ビー・エヌ・エヌ新社, 2014/11
 
 2. The Nature of Code (English Edition), Daniel Shiffman, Amazon Services International, Inc.
+
+3. Processing Creative Coding and Generative Art in Processing 2, Greenberg, Ira, Xu, Dianna, Kumar, Deepak, Apress 2013
