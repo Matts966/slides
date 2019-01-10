@@ -18,6 +18,8 @@ highlightTheme: "darkula"
 <a rel='nofollow' href='https://matts966.github.io/slides/slides-src/phics-export/' style='cursor:default'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fmatts966.github.io%2Fslides%2Fslides-src%2Fphics-export%2F&chs=210x210&choe=UTF-8&chld=L|2' alt='https://matts966.github.io/slides/slides-src/phics-export/' title='Slide'></a>
 </div>
 
+note: 最初のページ。URLのバーコードがあるので画面を長めに表示しておく。
+
 ---
 
 ## 目次
@@ -150,19 +152,27 @@ p.setup = function () {
 - チケットシステム（これを入れないとログインの意味なし）
 - Email Confirmation
 - リセマラ対策用のアカウントsoft-delete（コンテンツの価値と量を上げないと意味なし）
-- GANモデルのアプリケーションへの取り込み(Ruby で書きたくないのでGAE/GOの予定)
-- 実際のDBへの画像の保存（Saveボタンはカードを表に返してから出したい）
+- Saveボタンをカード回転後にrenderする（先にあっても意味ないので）
 
 --
 
 ## 今後の課題
 
+- 良いアプリ名を考える。
+- GANモデルのアプリケーションへの取り込み(Ruby で書きたくないのでGAE/GOの予定)
+- 実際のDBへの画像の保存（Saveボタンはカードを表に返してから出したい）
 - ユーザーごとの所持画像一覧機能
 - SNS share
-- アイコン
+
+--
+
+## 今後の課題
+
+- アイコン (& bugfix: apple icon not rendered)
 - ~~PWA対応~~
 - カードの種類増やす
 - LP作る
+- bugfix: 画面全体のクリックイベントで背景が暗くなる。
 
 ---
 
