@@ -51,7 +51,7 @@
 
 <aside class="notes"><p>最初のページ。URLのバーコードがあるので画面を長めに表示しておく。</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-## 目次
+### 目次
 
 1. [実習の目的](#/2) 
 2. [システムの概要](#/3)
@@ -67,20 +67,20 @@
 - 研究室のAPIを使ってみる
 - あわよくば研究のテーマ案を見つける
 </script></section><section  data-markdown><script type="text/template">
-## システムの概要
+### システムの概要
 
 - 人感センサーをつかって電灯の自動制御を行う。
 - 電灯がついている状態の場合、一定時間人の動きがないと消灯する。
 - 電灯がついていない状態の場合、動きがあればすぐに電灯をつける。
 
 </script></section><section ><section data-markdown><script type="text/template">
-## isaax
+### isaax
 
-<img src="images/isaax_logo_vector.svg" style="max-width:40%;" alt="isaax_logo">
+<img src="images/isaax_logo_vector.svg" style="max-width:40%;background:white;" alt="isaax_logo">
 
 デプロイの管理、簡易化のために使用。
 </script></section><section data-markdown><script type="text/template">
-## isaax 
+### isaax 
 
 - `git push` だけで自動でデプロイされる。
     - → Version管理しながら楽に実験できる。
@@ -88,21 +88,22 @@
 - ラズパイでisaax用のプロセスを立ち上げておくと、デプロイ → 設定したエントリポイントが実行される。
 - デプロイ対象が増えると有料枠になる。小規模だと無料で済む。
 </script></section><section data-markdown><script type="text/template">
-## Githubでの管理
+### isaax 
+##### Githubでの管理
 
 - `dotenv` を用いてAPIの認証情報などはアップロードしないようにした。
-- `Python2系` の `dotenv` は動かないのでインストール後動くように書き換える必要がある。　
+- `Python2系` の `dotenv` は動かないのでインストール後動くように書き換える必要があった。　
 </script></section></section><section ><section data-markdown><script type="text/template">
-## 実装の概要
+### 実装の概要
 
 - 人感センサーを使って半径7ｍの動きを検知
 - 一定時間動きがないとセンサー出力値が変動
 - 動きがあるとセンサー出力値が変動
 - Callbackでそれぞれに必要な処理を渡す。
 </script></section><section data-markdown><script type="text/template">
-## 実装の概要
+### 実装の概要
 
-### エントリポイント
+#### エントリポイント
 
 ```Python
 def main():
@@ -114,9 +115,9 @@ def main():
     ms.start()
 ```
 </script></section><section data-markdown><script type="text/template">
-## 実装の概要
+### 実装の概要
 
-### エントリポイント
+#### エントリポイント
 
 ```Python
 def main():
@@ -131,9 +132,9 @@ def main():
 - `on_callback` : 電灯をつけるAPIを呼ぶ関数
 - `off_callback` : 消灯するAPIを呼ぶ関数
 </script></section><section data-markdown><script type="text/template">
-## 実装の概要
+### 実装の概要
 
-### エントリポイント
+#### エントリポイント
 
 ```Python
 def main():
@@ -148,18 +149,38 @@ def main():
 - センサークラスを作成して、センサー自体の動きの有無に関する閾値に加えて、
 `off_callback` を呼ぶまでの待機時間を設定できるようにした。
 </script></section></section><section ><section data-markdown><script type="text/template">
-## エアコン制御
+### エアコン制御
 
 このシステムにエアコンの管理機能もいれたい
 
 →どうなるか？
 </script></section><section data-markdown><script type="text/template">
+- 人がいなくなったら消したいので人感センサーの情報も使いたい。
+- 電源がついている場合は、部屋の気温に合わせてモードや設定温度を変更したい。
+    - これは一定時間おきで良いので `cron` などを使う？
+- 新たに人感センサーの情報を購読したい関数や、気温、エアコンがついているか否か、モードは何か、といった状態が追加される。
+</script></section></section><section ><section data-markdown><script type="text/template">
+### 今後の課題 → 状態管理
 
+- 関数型言語、Elmなどでの状態管理
+- それに影響を受けた Reactなどの状態管理
+
+これらをIoTに持ち込むと楽になるんじゃないか？
+</script></section><section data-markdown><script type="text/template">
+### 今後の課題 → 状態管理
+
+- センサーの情報、システムのモードなどを状態として一元管理する。
+- 状態に対して関数を登録することで、状態変化の際に呼び出す。
+- 状態遷移図や状態遷移表を自動生成。
+- 状態の可視化。
+
+こういうフレームワークはあると便利だと思った。
+</script></section><section data-markdown><script type="text/template">
+### 今後の課題 → 生成モデル $\times$ BC
+
+<a target="_blank" href="https://phics.tech-naby.tech"><img src="images/generative.jpg" style="max-width:40%;" alt="generative_art"></a>
 </script></section></section><section  data-markdown><script type="text/template">
-## 今後の課題 -状態管理-
-
-</script></section><section  data-markdown><script type="text/template">
-## ありがとうございました！
+### ありがとうございました 🎉
 
 川上さん、お世話になりました 🙇‍♂️</script></section></div>
         </div>
