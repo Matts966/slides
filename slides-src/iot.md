@@ -173,11 +173,23 @@ def main():
 
 こういうフレームワークはあると便利だと思った。
 
---
+---
 
-### 今後の課題 → 生成モデル $\times$ BC
+### 他に思いついた研究課題 
+#### 生成モデル $\times$ BC
 
 <a target="_blank" href="https://phics.tech-naby.tech"><img src="images/generative.jpg" style="max-width:40%;" alt="generative_art"></a>
+
+--
+
+### 他に思いついた研究課題 
+#### 生成NW $\times$ BC
+
+- 前ページ画像のリンク先にDEMO
+- 現状それぞれの画像をp5.jsを用いて生成
+- 雛形は3種類ほどしかない
+- バックエンドを生成ネットワークにし、生成された画像を効率良く保存する
+- NWの重み行列の集合と、潜在表現の行列に分けて保存（広義の行列分解？）
 
 ---
 
