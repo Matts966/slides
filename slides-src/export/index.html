@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RevealJS : /Users/masahiro.matsui/slides/slides-src/aktsk-atlas-intern.md</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+        
+       
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/darkula.css">
+
+        
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <style type="text/css">
+            @page {    
+              margin: 0;
+              size: auto; 
+            }
+        </style>
+
+        <script>
+         if(window.location.search.match( /print-pdf-now/gi )) {
+           window.print();
+         }
+      </script>
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">
+# Akatuki
+
+## エンジニアインターン
+
+in
+
+## ATLASチーム
+</script></section><section  data-markdown><script type="text/template">
+## 目次
+
+1. [自己紹介](#/2)
+2. [やったこと](#/3)
+3. [やっておいた方が良かったこと](#/4)
+4. [やっていて良かったこと](#/5)
+5. [感想](#/6)
+</script></section><section  data-markdown><script type="text/template">
+## 自己紹介
+</script></section><section ><section data-markdown><script type="text/template">
+## やったこと
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+- スタックトレースが出るようにするためのエラーハンドリング周りのリファクタリング
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+- エラーハンドリング周りの静的解析リンターの改善
+  - case文に対応したりした。
+  - 静的解析に触れられてよかった。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+- エラーハンドリング周りの静的解析リンターの改善
+  - SSAなどの概念を知れてよかった。
+  - Go言語の内部実装などもついでに読めて、ツールが整っていてかつGo自身で書かれているのが改めて良いと感じた。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+- エラーハンドリング周りの静的解析リンターの改善
+  - xerrorsという新しいバージョンの標準パッケージに対応する linter（OSS版）にもプルリクを出せた(プライベートで)
+  - [link](https://github.com/sachaos/xerrchk/pull/2)
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+- 重いサービスの別サービス化とそれに伴うCIの更新
+  - ミスると大変そうだった
+  - なんどか叩き台を提案したが、その度に最もな指摘を頂いて、自分の設計能力の甘さを再認識できた。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+- どんどん伸びる `circleci.yml`
+  - `circleci.yml` は CI だから基本走る（走らせたくない部分は filter する）と考える。
+  - workflowごとに `require` をたどっていけば長くてもコメントを頼りに読める。
+  - ↑は可視化ツールのおかげです。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+![decision_tree](images/decision_tree.png)
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+- 動かないSDK
+
+```python
+  def _HeadersFromTask(self, task, queue):
+    headers = []
+    for header in task.header_list():
+      header_key_lower = header.key().lower()
+
+      if header_key_lower == 'host' and queue.target is not None:
+        headers.append(
+            (header.key(), '.'.join([queue.target, self._default_host])))
+      elif header_key_lower not in BUILT_IN_HEADERS:
+        headers.append((header.key(), header.value()))
+    # headers.append(('host', 'localhost:8081'))
+```
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+- 任意のスライスをエンコードしてログに出すという目的のために `reflect` を使っており、それの切り出しをどうするかが難しかった。
+- 既存のコードでは `SliceTo~` という命名で使っており、 `slice` 以外を受け取ると `panic` するが、名前が名前なので良さそうではある。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+- これを抽象化して `encode~` といった副作用のない関数に切り出してテストする必要があり、この命名で `slice` 以外を受け取ると `panic` するというのはあまりに理不尽だと思い困った。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+- `Go` はジェネリックがないからつらい、とよく聞いたが、本質的にジェネリックは `panic` を起こしやすい機能だと思うので、簡単にはそれを組み込もうとしない、というのは合理的にも感じた。
+- 最終的に外部で使う `exported` な関数の名前を `AddSliceTo~` と改名することで乗り切った。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やったこと</p>
+
+### 直面した問題
+
+- `panic` を起こす点では変わりないが、互換性を保ちながらのリファクタリングというスコープだったのと、さすがにすべての型に対して専用の関数を入れるのは厳しいので、これで良いと感じた。
+- コメントで  `slice` 以外を受け取ると `panic` するということを強調しておいた。
+- 最終的には `error` を返すように改修した。
+</script></section></section><section ><section data-markdown><script type="text/template">
+## やっておいた方が良かったこと
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やっておいた方が良かったこと</p>
+
+
+### \#golang CodeReviewCommentsを読んでおく
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やっておいた方が良かったこと</p>
+
+
+### 無理に汎用的なコードを書かない
+
+#### 無理に短く書こうとしない
+</script></section></section><section ><section data-markdown><script type="text/template">
+## やっていて良かったこと
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やっていて良かったこと</p>
+
+- 質問、日報のgit管理
+  - 共有できる。
+  - 後からコピペできる。
+  - 思いついたこと、忘れがちなメモなどを残せる
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やっていて良かったこと</p>
+
+- とりあえず理解できないコードも通しで読んでおく
+  - コメントとかで重要な情報が拾える
+  - 後からキーワードで思い出せる
+  - 大体のボリューム感がわかる。
+  - 会話のタネになる。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">やっていて良かったこと</p>
+
+- docの整理
+  - 環境構築はだいたい詰まる
+  - 新しく入った人が詰まった部分をdocに追記していくのがよい
+</script></section></section><section ><section data-markdown><script type="text/template">
+## 感想
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+- 今回のプロジェクトは人がいなくて大変そうだった。
+- フルで会社にいた方のうち
+  - CTOさんは他の仕事も山のようにあった。
+  - メンターさんは2人のインターンを抱えていて、大変そうだった。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+- GCP勉強会
+  - 使っているクラウドに関して、最新の話題を知れてよかった。
+  - 興味のある話題を、他の人の知識なども聞きながら話せてよかった。
+- 業務時間内に勉強会できるのは最高だった。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+- Github にもう少し慣れておきたかった。
+  - Tag をプッシュして恥をかく、など
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+- 別サービス化したサービスのインスタンスクラスについての議論
+  - IOの待ち時間が多くを占めるから非同期に処理できる数を増やしたほうがよく、そのためには `max_concurrent_request` の指定ができるF2が良いという意見
+  - 計測する前に推測している状態で設定を最適化すべきでない、という意見
+  - 議論のレベルがとても高く、自分の考えの浅さが理解できた。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+### 健康的だった
+
+- 弁当
+- 朝会
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+### 楽しく働けた
+
+- 歓迎ランチ
+- 進捗がある
+  - 朝回
+  - 日報
+  - 質問しやすい環境
+  - 結果的に生産性が高い
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+### 楽しく働けた
+
+- ツールが良い
+  - github, g amba!, TeamSpirit, CircleCIなど
+  - UI、デザインや操作性の悪い自社サービスを無理して使うと辛いので。
+- 毎日早起きできたのが楽しかった証拠だと思う。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+### 楽しく働けた
+
+- メンターさんの詳しい領域についての話がかなり勉強になった。
+  - Go111では基本的に任意のコード実行ができるので頑張れば tensorflow/go も導入できるはず、など
+- 有名なOSSを作っていた人や、自身で作ったプロダクトで賞をとった人が周りにいるため、刺激をもらえる。
+</script></section><section data-markdown><script type="text/template">
+<p style="text-align:left;">感想</p>
+
+### 楽しく働けた
+
+- 朝起きれたのがその証拠
+</script></section><section data-markdown><script type="text/template">
+### オフィスがきれい
+
+- ラウンジ
+- 執務スペースと休憩スペース
+- 会議室
+</script></section></section><section  data-markdown><script type="text/template">
+## ありがとうございました 🎉
+</script></section><section  data-markdown><script type="text/template">
+## 質問（あれば）</script></section></div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+              { src: 'plugin/math/math.js', async: true }
+            ];
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default',
+              dependencies: deps
+            };
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+            var options = {
+  "notesSeparator": "note:",
+  "separator": "^[\r\n?|\n]---[\r\n?|\n]$",
+  "verticalSeparator": "^[\r\n?|\n]--[\r\n?|\n]$",
+  "theme": "night",
+  "highlightTheme": "darkula",
+  "controls": true,
+  "progress": true,
+  "slideNumber": false,
+  "history": true,
+  "keyboard": true,
+  "overview": true,
+  "center": true,
+  "touch": true,
+  "loop": false,
+  "rtl": false,
+  "shuffle": false,
+  "fragments": true,
+  "embedded": false,
+  "help": true,
+  "showNotes": false,
+  "autoSlide": 0,
+  "autoSlideStoppable": true,
+  "mouseWheel": false,
+  "hideAddressBar": true,
+  "previewLinks": false,
+  "transition": "convex",
+  "transitionSpeed": "default",
+  "backgroundTransition": "default",
+  "viewDistance": 3,
+  "parallaxBackgroundImage": "",
+  "parallaxBackgroundSize": "",
+  "parallaxBackgroundHorizontal": null,
+  "parallaxBackgroundVertical": null,
+  "title": "Akatsuki Internship",
+  "attributes": ""
+};
+            options = extend(defaultOptions, options, queryOptions);
+            Reveal.initialize(options);
+
+        </script>
+        
+    </body>
+</html>
