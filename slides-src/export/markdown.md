@@ -1,9 +1,3 @@
----
-theme : "night"
-transition: "convex"
-highlightTheme: "darkula"
-title: Akatsuki Internship
----
 
 # Akatsuki
 
