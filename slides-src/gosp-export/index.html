@@ -1,9 +1,40 @@
----
-theme : "night"
-transition: "convex"
-highlightTheme: "darkula"
----
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RevealJS : /Users/masahiromatsui/GoogleDrive/slides/slides-src/gosp.md</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+        
+       
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/darkula.css">
 
+        
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <style type="text/css">
+            @page {    
+              margin: 0;
+              size: auto; 
+            }
+        </style>
+
+        <script>
+         if(window.location.search.match( /print-pdf-now/gi )) {
+           window.print();
+         }
+      </script>
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">
 ### Go言語で書くLispインタプリタ
 
 <div style='display:inline-block;'>
@@ -16,9 +47,7 @@ highlightTheme: "darkula"
 </div>
 
 <small>Masahiro Matsui</small>
-
----
-
+</script></section><section  data-markdown><script type="text/template">
 ### 目次
 
 1. [概要](#/2)
@@ -26,25 +55,19 @@ highlightTheme: "darkula"
 3. [苦労した点](#/4)
 4. [TODO](#/5)
 5. [おまけ](#/6)
-
----
-
+</script></section><section ><section data-markdown><script type="text/template">
 ## 概要
 
 ### やったこと
 
 Rui ueyamaさんの `minilisp` を参考にミニマムなLispを~~書いた~~（書こうとした）
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Lispとは？
 
 <p class="fragment">
 ![alien](./images/lisplogo_alien_256.png)
 </p>
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Lispとは？
 
 ```lisp
@@ -64,9 +87,7 @@ Rui ueyamaさんの `minilisp` を参考にミニマムなLispを~~書いた~~�
 ```
 
 こういうやつ
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### LL(1)文法
 
 [link](https://github.com/Matts966/gosp/blob/master/repl/reader/read_expr.go#L144)
@@ -74,9 +95,7 @@ Rui ueyamaさんの `minilisp` を参考にミニマムなLispを~~書いた~~�
 - ↑にあるように、一文字先読みして再帰的に降りていって構文解析する（再帰降下構文解析）
 - さらにいうと、Lispのトークンは基本1文字なので、Lexerを用意しなくとも良い。
 - （ミニマムな実装であることもある）
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### GCは？
 
 <p class="fragment">
@@ -90,9 +109,7 @@ Goのマークアンドスイープアルゴリズムがやってくれるから
 <p class="fragment">
 実際には環境の扱い方に注意が必要。
 </p>
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### 全体像
 
 ![flow](./images/interperter_flow.svg)
@@ -111,22 +128,16 @@ cond1(yes)->print_err
 cond1(no)->e->cond2
 cond2(yes)->print_err2
 cond2(no)->repl -->
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## ポインタ渡しor値渡し
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### ポインタも実体も投げられる魔法のコード
 
 - `Go` はポインタ型でもインターフェースはそのまま使える
 - その結果、構造体はポインタで、 `interface` はそのままで渡したいときなどに
   - タイプスイッチでポインタと実体それぞれについて書く必要...
   - 実体をたぐるときに `panic` する可能性を常に考慮する必要... が生じる
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### ポインタも実体も投げられる魔法のコード
 
 全部無視して以下のコードから `interface` 型を取得し、タイプスイッチに渡せば良い！
@@ -141,9 +152,7 @@ func main() {
 ```
 
 - `nil` を渡すと `panic` するので注意...
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### ポインタも実体も投げられる魔法のコード
 
 最終的には
@@ -153,42 +162,30 @@ func main() {
 - コードが冗長になる
 
 ことを考えて全てポインタで扱うようにした。
-
---
-
+</script></section><section data-markdown><script type="text/template">
 - とはいえ、毎回 `nil` チェックが必要になる
 - ので、破壊的更新が必要なところ以外は値渡しに変更していっても良いかもしれない。
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## 苦労した点
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### 循環参照
 
 - Goではモジュール間の循環参照はできない。
 - `Evaluator` も `PrimitiveFunctions` も、お互いがお互いを必要になってしまった。
 - 評価を行うような処理は出来るだけ `Evaluator` に寄せ、なんとか分離できた。
 - 改めて、モジュールごとの責務を綺麗に分離することの重要さを感じた。
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Singly Linked List (Cons Cell) の実装
 
 - 可変長配列があれば再帰的なセルの実装を行う必要はない。
 - 言語機能が十分強力な場合、自分で作らず利用した方が早いということ。
 - ↑に気づくことができなかった。
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### 先読みの際のバグ
 
 - bufioでスキャナを作ったとき、バッファがひとつであるという当たり前の事実を忘れて、UnreadRuneを二回やって失敗していた。
 - バグるはずがないとエラーを握りつぶしていたので、やはり最初からエラーハンドリングはしっかりやるべき。
-
---
-
+</script></section><section data-markdown><script type="text/template">
 とはいえ一文字の先読みだとツラいこともある。
 
 ```Go
@@ -222,15 +219,11 @@ swith c {
   p = scn.Peek()
 }
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### シンボルテーブルの追加
 
 [link to commit](https://github.com/Matts966/gosp/commit/8a2c6c939536ea51cb349beada6a0d7373c07408)
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ```lisp
 (eq (gensym) 'G__0)
 ```
@@ -242,51 +235,33 @@ swith c {
 ```
 
 つまり`False`
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### スコープのデバッグ
 
 - 再帰関数などを実装するためには、関数の持つ環境の中にその関数自身が定義されている必要がある。
 - それ自体が再帰的構造なので、デバッグプリントすると無限ループになる。
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 # TODO
-
---
-
+</script></section><section data-markdown><script type="text/template">
 - マクロの実装
-
---
-
+</script></section><section data-markdown><script type="text/template">
 - while 構文の実装
   - マクロで書いても良いがループがなく再帰しか書けない
   - そのため、空間計算量を考えるとビルトインでつくりたい
-
---
-
+</script></section><section data-markdown><script type="text/template">
 - 可変長引数のバグ修正
-
---
-
+</script></section><section data-markdown><script type="text/template">
 - クロージャのバグ修正
   - 現状グローバルな変数はキャプチャ可能。
   - ローカルになるとおかしくなる。
   - 環境の扱い方をもう一度確認する。
-
---
-
+</script></section><section data-markdown><script type="text/template">
 - その他バグを見つかり次第潰す...
   - 引数がない場合のセグフォなど
 - テストを増やしていく...
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 # おまけ
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### xerrors with xerrchk は最高
 
 ```Go
@@ -298,9 +273,7 @@ error occured while evaluating obj in repl.Run obj=&types.Symbol{Name:(*string)(
     github.com/Matts966/gosp/repl/evaluator.Eval
         /Users/masahiromatsui/gosp/repl/evaluator/eval.go:18
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### そのままエラーでパニックすると...
 
 ```Go
@@ -312,9 +285,7 @@ main.main()
         /Users/masahiromatsui/gosp/cmd/gosp/main.go:44 +0x62
 exit status 2
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### goの中でLispが書ける！
 
 ```Go
@@ -337,19 +308,94 @@ fmt.Println("returned:", obj.String())
 (789 . 123)
 returned: (789 . 123)
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 #### サーバーが立ち上がる！
 
 - 実装する言語の能力が強力であれば、ビルトイン関数として実装することはとても楽だと分かった。
 - 反対に、初めてC言語などの高級言語を完成させた人類は大変だったはず。
 - すでにWebAssemblyに対応しているなど、これからRustPythonみたいな言語はアツイかも？
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ### ありがとうございました 🎉
+</script></section><section data-markdown><script type="text/template">
+## 質問（あれば）</script></section></section></div>
+        </div>
 
---
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-## 質問（あれば）
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+              { src: 'plugin/math/math.js', async: true }
+            ];
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default',
+              dependencies: deps
+            };
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+            var options = {
+  "notesSeparator": "note:",
+  "separator": "^[\r\n?|\n]---[\r\n?|\n]$",
+  "verticalSeparator": "^[\r\n?|\n]--[\r\n?|\n]$",
+  "theme": "night",
+  "highlightTheme": "darkula",
+  "controls": true,
+  "progress": true,
+  "slideNumber": false,
+  "history": true,
+  "keyboard": true,
+  "overview": true,
+  "center": true,
+  "touch": true,
+  "loop": false,
+  "rtl": false,
+  "shuffle": false,
+  "fragments": true,
+  "embedded": false,
+  "help": true,
+  "showNotes": false,
+  "autoSlide": 0,
+  "autoSlideStoppable": true,
+  "mouseWheel": false,
+  "hideAddressBar": true,
+  "previewLinks": true,
+  "transition": "convex",
+  "transitionSpeed": "default",
+  "backgroundTransition": "convex",
+  "viewDistance": 3,
+  "parallaxBackgroundImage": "",
+  "parallaxBackgroundSize": "",
+  "parallaxBackgroundHorizontal": null,
+  "parallaxBackgroundVertical": null,
+  "attributes": ""
+};
+            options = extend(defaultOptions, options, queryOptions);
+            Reveal.initialize(options);
+
+        </script>
+        
+    </body>
+</html>
