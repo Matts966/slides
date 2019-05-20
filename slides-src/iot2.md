@@ -9,11 +9,11 @@ highlightTheme: "darkula"
 <small>[Masahiro Matsui](https://tech-navy.tech)</small>
 <div style='display:inline-block;'>
 <p>Github</p>
-<a rel='nofollow' href='https://github.com/Koshizuka-lab/2019_DUCRB_Remocon_Project/matsui' style='cursor:default;'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https://github.com/Koshizuka-lab/2019_DUCRB_Remocon_Project/matsui&chs=210x210&choe=UTF-8&chld=L|2' alt='https://phics.tech-navy.tech' title='Service'></a>
+<a rel='nofollow' href='https://github.com/Koshizuka-lab/2019_DUCRB_Remocon_Project/matsui' style='cursor:default;'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https://github.com/Koshizuka-lab/2019_DUCRB_Remocon_Project/matsui&chs=210x210&choe=UTF-8&chld=L|2' alt='' title=''></a>
 </div>
 <div style='display:inline-block;'>
 <p>Slide</p>
-<a rel='nofollow' href='https://matts966.github.io/slides/slides-src/iot2-export/' style='cursor:default'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fmatts966.github.io%2Fslides%2Fslides-src%2Fiot-export%2F&chs=210x210&choe=UTF-8&chld=L|2' alt='https://matts966.github.io/slides/slides-src/iot2-export/' title='Slide'></a>
+<a rel='nofollow' href='https://matts966.github.io/slides/slides-src/iot2-export/' style='cursor:default'><img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fmatts966.github.io%2Fslides%2Fslides-src%2Fiot2-export%2F&chs=210x210&choe=UTF-8&chld=L|2' alt='' title=''></a>
 </div>
 
 note: 最初のページ。URLのバーコードがあるので画面を長めに表示しておく。
