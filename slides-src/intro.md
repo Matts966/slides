@@ -2,6 +2,7 @@
 theme : "night"
 transition: "convex"
 highlightTheme: "darkula"
+title: "Introduction"
 ---
 
 ## 自己紹介
@@ -27,45 +28,51 @@ highlightTheme: "darkula"
 
 進化認知脳科学サブメジャー
 
-現在4年・2020卒
-
-学費を稼ぐために [インターン](#/3) 経験が多い
+4年・2020卒
 
 ---
 
-## インターン
+## インターン経験
 
 --
 
 ### Decoo, inc.
 
-ディレクターとして入ってソーシャルゲームのプロジェクトのテックリード、PLまで
+- ディレクターとして入った後、ソーシャルゲームのプロジェクトのTL、PLなど
+- PHP(Laravel), C#(Photon server), C++(Cocos2dx)での開発
+- 管理画面改修からクライアント・サーバー開発による機能の実装・業務の自動化など
 
 --
 
 ### Retty, inc.
 
-データ分析
+- Bigqueryでのアドホックなデータ分析
+- 分析基盤の調査(Docker, ECSなど)
 
 --
 
 ### Mercari, inc.
 
-米テキサスでのユーザーインタビューと施策提案・プロトタイプ開発・プレゼンテーション
+- 米テキサスでのユーザーインタビューと施策提案
+- プロトタイプ開発(Swift, webview)
+- プレゼンテーション
 
 --
 
 ### Uniaim, inc.
 
-POSシステムのAndroidクライアント・サーバー等の開発
+- POSシステムのAndroidクライアント(Java)開発
+- Python(flask), PHP(codeigniter)でのサーバーサイド開発
 
---
+<!-- --
 
 ### Gino, inc.
 
+Paiza
+
 競技プログラミング問題のレビュー
 
-[そこまで自分は強くはない...](http://atcoder.jp/users/Matts966)
+[](http://atcoder.jp/users/Matts966) -->
 
 --
 
@@ -73,21 +80,27 @@ POSシステムのAndroidクライアント・サーバー等の開発
 
 OCRを用いるサービスの精度改善を行う開発
 
+- 自然言語処理（言語モデル）に関する調査
+- 画像識別課題への方針転換
+- 転移学習での実装
+- 軽量なモデルの選択による高速化
+
 --
 
 ### [Akatsuki, inc.](http://matts966.github.io/slides/aktsk-export)
 
-GAE/Go での共通基盤開発
-
-[OSS貢献](http://github.com/sachaos/xerrchk/pull/2)
+- GAE/Go での共通基盤開発
+  - Taskqueue上のデータの向き先変更・サービスの分離など
+- 正確なエラー伝播のための静的解析ツールの改善
+  - その一部を[OSS版でも貢献](http://github.com/sachaos/xerrchk/pull/2)
 
 --
 
 ### Mirrativ, inc.
 
-SRE
-
-始まったばかり
+- インフラチーム
+- WebRTCサーバーの可用性設計や監視機能の実装など
+- Go, GCPやCoreOSを用いた開発、RFCの調査・実装など
 
 ---
 
@@ -95,17 +108,25 @@ SRE
 
 --
 
-だいたいブログ内の [このページ](http://tech-navy.tech/portfolio/) に載っている
+だいたいブログ内の [このページ](http://tech-navy.tech/portfolio/) に載っています
 
 --
 
-### [Phics](http://phics.tech-navy.tech/)
+### [Phics](https://phics.tech-navy.tech/)
 
 グラフィクス生成Webアプリケーション
 
 --
 
-### 機械学習
+### [Gosp](https://github.com/Matts966/gosp)
+
+LispインタプリタのGo言語実装
+
+[紹介スライド](https://matts966.github.io/slides/slides-src/gosp-export/#/)
+
+--
+
+### 機械学習関連
 
 --
 
@@ -143,6 +164,7 @@ SRE
 
 ## 研究方針
 
-2019年4月 情報学環越塚研究室に配属
+2019年4月~ 情報学環越塚研究室にて
 
-今後は、IoT分野を中心に、機械学習の応用を試みる研究を行なっていく予定です。
+- RTOSに特化したDSLの提案を予定（プロトタイプ開発中）
+- IoT分野への機械学習の応用研究なども調査・検討中
