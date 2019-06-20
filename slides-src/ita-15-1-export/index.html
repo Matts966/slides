@@ -70,13 +70,13 @@ Thomas H. Cormen  (著), Charles E. Leiserson  (著), Ronald L. Rivest  (著), C
 </script></section></section><section ><section data-markdown><script type="text/template">
 #### 15.1 Rod cutting
 
-![長さと値段の対応表](./images/algo/rod01.png)
+![長さと値段の対応表](../images/algo/rod01.png)
 
 長さと値段の対応表が与えられるので、ある長さの棒の値段を最大化する分割の方法を考える
 </script></section><section data-markdown><script type="text/template">
 例）長さ4の棒の分割方法 全通り
 
-![長さ4の棒の分割方法](./images/algo/rod02.png)
+![長さ4の棒の分割方法](../images/algo/rod02.png)
 
 切れる可能性のある部分が $n-1$ 箇所なので、そこで切るか切らないかを考えて $2^{n-1}$
 </script></section><section data-markdown><script type="text/template">
@@ -86,12 +86,12 @@ Thomas H. Cormen  (著), Charles E. Leiserson  (著), Ronald L. Rivest  (著), C
 </script></section><section data-markdown><script type="text/template">
 - 長さiの時の値段と切り方
 
-![長さiの時の値段と切り方](./images/algo/rod03.png)
+![長さiの時の値段と切り方](../images/algo/rod03.png)
 </script></section><section data-markdown><script type="text/template">
 式にすると
 
-![式]](./images/algo/rod04.png)
-![式](./images/algo/rod05.png)
+![式]](../images/algo/rod04.png)
+![式](../images/algo/rod05.png)
 
 一つの部分問題に依存
 </script></section></section><section ><section data-markdown><script type="text/template">
@@ -99,11 +99,11 @@ Thomas H. Cormen  (著), Charles E. Leiserson  (著), Ronald L. Rivest  (著), C
 
 素直に再帰的に式を実装すると
 
-![rec](./images/algo/rod06.png)
+![rec](../images/algo/rod06.png)
 </script></section><section data-markdown><script type="text/template">
 再帰呼び出しを木で表すと
 
-![rec_tree](./images/algo/rod07.png)
+![rec_tree](../images/algo/rod07.png)
 
 2が複数あるなど、重複があるのがわかる。
 </script></section><section data-markdown><script type="text/template">
@@ -128,12 +128,12 @@ $T(n)=2^n$
 </script></section><section data-markdown><script type="text/template">
 - 再帰的なトップダウンのアプローチ
 
-![rec_top1](./images/algo/rod08.png)
+![rec_top1](../images/algo/rod08.png)
 
 - まずは $-\infty$ で配列を初期化、キャプチャして再帰関数を呼ぶ
 - $-\infty$ は不明を表している。
 </script></section><section data-markdown><script type="text/template">
-![rec_top2](./images/algo/rod09.png)
+![rec_top2](../images/algo/rod09.png)
 
 - 部分問題の値を記録する
 - トップダウンに、nから降りていく。
@@ -142,7 +142,7 @@ $T(n)=2^n$
 - ボトムアップなアプローチ
 - 長さ1の場合から表をボトムアップに埋めていく
 
-![bottom](./images/algo/rod10.png)
+![bottom](../images/algo/rod10.png)
 </script></section><section data-markdown><script type="text/template">
 どちらも、長さn分最適値を考え、その度に平均 $n/2$ 候補を考えているため、計算量は $\Theta(n^2)$ となる。
 </script></section></section><section ><section data-markdown><script type="text/template">
@@ -152,9 +152,9 @@ rod cutting の例だと以下
 
 <div style="display: inline;">
 
-![rec_tree](./images/algo/rod07.png)
+![rec_tree](../images/algo/rod07.png)
 
-![rod_graph](./images/algo/rod11.png)
+![rod_graph](../images/algo/rod11.png)
 
 </div>
 
@@ -176,15 +176,15 @@ rod cutting の例だと以下
 </script></section><section data-markdown><script type="text/template">
 - 以下のような、最後に切った長さを保持する配列sを用意する。
 
-![s](./images/algo/rod12.png)
+![s](../images/algo/rod12.png)
 </script></section><section data-markdown><script type="text/template">
 - 長さnからsの値を繰り返し引いていけば、切り方を構成できる。
 
-![how](./images/algo/rod13.png)
+![how](../images/algo/rod13.png)
 </script></section><section data-markdown><script type="text/template">
 - sは以下のような拡張されたアルゴリズムで埋められる。
 
-![s_algo](./images/algo/rod14.png)
+![s_algo](../images/algo/rod14.png)
 </script></section></section><section ><section data-markdown><script type="text/template">
 ##### Exercises
 </script></section><section data-markdown><script type="text/template">
@@ -229,7 +229,7 @@ s[0..n] を初期化し、rと同じタイミングで更新。qが更新され�
 </script></section></section><section ><section data-markdown><script type="text/template">
 ###### 15.1-5 フィボナッチ数を動的計画法で解きなさい。 subproblem graph を書き、頂点と辺の数を求めなさい。
 </script></section><section data-markdown><script type="text/template">
-![subproblem graph](./images/algo/rod.png)
+![subproblem graph](../images/algo/rod.png)
 
 頂点 $n$ , 辺 $2(n-2)$
 </script></section><section data-markdown><script type="text/template">
