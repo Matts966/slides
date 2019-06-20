@@ -10,4 +10,4 @@
 
 [aktsk](./slides-src/aktsk-export/)
 
-[Introduction to algorythm](./slides-src/ita-export/)
+[Introduction to algorithms](./slides-src/ita-export/)
