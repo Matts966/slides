@@ -9,5 +9,3 @@
 [IoT](./slides-src/iot-export/)
 
 [aktsk](./slides-src/aktsk-export/)
-
-[Introduction to algorithms](./slides-src/ita-export/)
