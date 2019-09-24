@@ -9,5 +9,3 @@
 [IoT](./slides-src/iot-export/)
 
 [aktsk](./slides-src/aktsk-export/)
-
-[nilarg](./slides-src/nilarg-export/)
