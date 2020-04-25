@@ -8,7 +8,7 @@ The `index.html` of the root of this project is a symlink to the file in the `sl
 
 We can publish slides by the steps below.
 
-1. editing the file `title.md` in the `slides-src` directory.
+1. editing the file `{title}.md` in the `slides-src` directory.
 2. exporting the markdown file to html using vscode-reveal.
 3. adding the relative link of the exported directory to the `index.md` in the `slides-src` directory.
 4. Commiting and pushing the changes.
