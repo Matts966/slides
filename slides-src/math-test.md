@@ -29,3 +29,7 @@ A \setminus B
 = A \cap B^c
 = \{ x \in A \mid x \notin B \}
 $$
+
+---
+
+$I(x)\propto ln(x)$
