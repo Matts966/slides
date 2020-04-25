@@ -9,3 +9,5 @@
 [IoT](./slides-src/iot-export/)
 
 [aktsk](./slides-src/aktsk-export/)
+
+$\argmax{x} \plusmn y$
