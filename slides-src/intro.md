@@ -13,10 +13,10 @@ title: "Introduction"
 
 ### 目次
 
-1. [プロフィール](#/2) 
-2. [インターン](#/3)
-3. [制作物](#/4)
-4. [研究方針](#/5)
+1. [プロフィール](#/2)
+2. [研究](#/3)
+3. [インターン](#/4)
+4. [制作物](#/5)
 
 ---
 
@@ -24,11 +24,18 @@ title: "Introduction"
 
 ### 松井誠泰
 
-東京大学教養学部学際科学科B群総合情報学コース
+東京大学教養学部学際科学科B群総合情報学コース卒
+進化認知脳科学サブメジャー修了
 
-進化認知脳科学サブメジャー
+東京大学学際情報学府 学際情報学科 総合分析情報学専攻 修士1年
 
-4年・2020卒
+---
+
+## 研究
+
+2019年4月~ 情報学環越塚研究室にて
+
+[Masahiro Matsui, Noboru Koshizuka: “Abstracted and Virtualized Development Environment for Embedded Real-Time Systems”, 2019 TRON Symposium, December 2019.](https://www.tronshow.org/2019-tron-symposium/en/2019-TRON-Symposium-Proceedings.zip)
 
 ---
 
@@ -99,8 +106,31 @@ OCRを用いるサービスの精度改善を行う開発
 ### Mirrativ, inc.
 
 - インフラチーム
-- WebRTCサーバーの可用性設計や監視機能の実装など
-- Go, GCPやCoreOSを用いた開発、RFCの調査・実装など
+  - WebRTCサーバーの可用性設計や監視機能の実装など
+  - Go, GCPやCoreOSを用いた開発、RFCの調査・実装など
+  - レプリ遅延のテスト環境での再現
+
+- Androidチーム
+  - GooglePlayベストオブ2019を獲得したMirrativアプリの開発
+
+--
+
+### Merpay, inc.
+
+- エキスパートチーム
+- Go言語での静的解析ツールを開発
+  - github.com/Matts966/genssa
+  - github.com/Matts966/genast
+  - github.com/Matts966/genelizer
+  - github.com/Matts966/refsafe
+
+--
+
+### JDSC
+
+- 初のエンジニアインターンとして入社
+- MLパイプライン構築・整備
+- SQLテスト等の基盤技術開発
 
 ---
 
@@ -159,12 +189,3 @@ LispインタプリタのGo言語実装
 [深層強化学習をNumpyから実装しようとした実験](http://github.com/Matts966/deep-learning-from-scratch/tree/master/kaneko_lab)
 
 [ipynb](http://github.com/Matts966/deep-learning-from-scratch/blob/master/kaneko_lab/%E6%9C%80%E7%B5%82%E6%8F%90%E5%87%BA-%E3%81%BE%E3%81%A8%E3%82%81.ipynb)
-
----
-
-## 研究方針
-
-2019年4月~ 情報学環越塚研究室にて
-
-- RTOSに特化したDSLの提案を予定（プロトタイプ開発中）
-- IoT分野への機械学習の応用研究なども調査・検討中

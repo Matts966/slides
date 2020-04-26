@@ -1,85 +1,372 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Introduction</title>
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Introduction</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- REVEAL CSS-->
+  <link rel="stylesheet" href="libs/reveal.js/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/reveal.js/3.8.0/css/reveal.css">
+  
+  <link rel="stylesheet" href="libs/reveal.js/3.8.0/css/theme/night.css" id="theme">
+  
+  
+  <link rel="stylesheet" href="libs/reveal.js/3.8.0/plugin/title-footer/title-footer-mod.css" />
+
+  <!-- MERMAID-->
+  <script src="libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js"></script>
+  <style>
+  .mermaid {
+    font-size: 0.5em;
+  }
+  </style>
+
+  <style>
+    [class*=task-list-item] {
+    min-height: 22px;
+    margin-top: 6px!important;
+    margin-bottom: 6px!important;
+    padding-left: 0;
+    list-style: none;
+}
+
+[class*=task-list-item]>input:first-child {
+    position: absolute!important;
+    opacity: 0;
+    margin: 0;
+}
+[class*=task-list-item]>label {
+    padding-left: 29px!important;
+    min-height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.task-list-item>input:first-child:checked+input[type=hidden]+label::before, .task-list-item>input:first-child:checked+label::before {
+    background-color: #ecf0f1;
+    border-color: #ecf0f1;
+}
+
+[class*=task-list-item]>input:first-child+input[type=hidden]+label::before, [class*=task-list-item]>input:first-child+label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #D3CFC8;
+    border-radius: 0;
+    margin-left: -29px;
+}
+
+
+[class*=task-list-item]>input:first-child:checked+input[type=hidden]+label::after, [class*=task-list-item]>input:first-child:checked+label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-left: none;
+    border-top: none;
+    transform: translate(7.75px,4.5px) rotate(45deg);
+    -ms-transform: translate(7.75px,4.5px) rotate(45deg);
+}
+
+
+.task-list-item>input:first-child:checked+input[type=hidden]+label::after, .task-list-item>input:first-child:checked+label::after {
+    border-bottom-color: #95a5a6;
+    border-right-color: #95a5a6;
+}
+  </style>
+
+  <!-- Theme used for syntax highlighting of code -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/9.12.0/darkula.css">
+  
+
+  
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/3.8.0/css/print/pdf.css' : 'libs/reveal.js/3.8.0/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    /* Solarized Light theme */
+     .line {
+      display: block;
+    }
+    
+
+    .line.focus {
+      background: #fdf6e3;
+      color: #657b83;
+    }
+
+/*
+    .line.focus .hljs-comment,
+    .line.focus .hljs-quote {
+      color: #93a1a1;
+    }
+
+    .line.focus .hljs-keyword,
+    .line.focus .hljs-selector-tag,
+    .line.focus .hljs-addition {
+      color: #859900;
+    }
+
+    .line.focus .hljs-number,
+    .line.focus .hljs-string,
+    .line.focus .hljs-meta .hljs-meta-string,
+    .line.focus .hljs-literal,
+    .line.focus .hljs-doctag,
+    .line.focus .hljs-regexp {
+      color: #2aa198;
+    }
+
+    .line.focus .hljs-title,
+    .line.focus .hljs-section,
+    .line.focus .hljs-name,
+    .line.focus .hljs-selector-id,
+    .line.focus .hljs-selector-class {
+      color: #268bd2;
+    }
+
+    .line.focus .hljs-attribute,
+    .line.focus .hljs-attr,
+    .line.focus .hljs-variable,
+    .line.focus .hljs-template-variable,
+    .line.focus .hljs-class .hljs-title,
+    .line.focus .hljs-type {
+      color: #b58900;
+    }
+
+    .line.focus .hljs-symbol,
+    .line.focus .hljs-bullet,
+    .line.focus .hljs-subst,
+    .line.focus .hljs-meta,
+    .line.focus .hljs-meta .hljs-keyword,
+    .line.focus .hljs-selector-attr,
+    .line.focus .hljs-selector-pseudo,
+    .line.focus .hljs-link {
+      color: #cb4b16;
+    }
+
+    .line.focus .hljs-built_in,
+    .line.focus .hljs-deletion {
+      color: #dc322f;
+    }
+
+    .line.focus .hljs-formula {
+      background: #eee8d5;
+    }
+
+    .line.focus .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .line.focus .hljs-strong {
+      font-weight: bold;
+    }
+
+    .yellow-slide .line.focus:nth-child(2) {
+      background: yellow;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      font-size: 70%;
+    }
+    */
+
+    .reveal .slides section .fragment.current-only {
+      visibility: visible;
+      display: none;
+    }
+
+    .reveal .slides section .fragment.current-only.current-fragment {
+      display: block;
+    }
+
+/*
+    .line {
+      display: block;
+    }
+*/
+    .line.focus {
+       opacity: 1.0;
+    } 
+
+    /* .hljs {
+      background: none;
+    } */
+
+    /* .reveal pre {
+      width: 98%;
+      margin: 0px;
+      box-shadow: none;
+    }
+
+    .reveal pre code {
+      font-size: 1.2em;
+      line-height: 1.2;
+      border-radius: 10px;
+      max-height: 60vh !important;
+      overflow: hidden !important;
+    } */
+
+    @media (device-width: 100vw) and (device-height: 100vh) {
+      .reveal pre code {
+        max-height: 50vh !important;
+      }
+    }
+
+    #logo img {
+      max-height: 3.5em;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      color: white;
+      background: black;
+      padding: 0px 15px;
+      border-radius: 15px;
+      opacity: 0.75 !important;
+      font-size: 50% !important;
+    }
+  </style>
+  <script>
+    if (window.location.search.match(/print-pdf-now/gi)) {
+      window.print();
+    }
+  </script>
+</head>
+
+<body>
+  
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-自己紹介" class="anchor" href="#自己紹介" aria-hidden="true"></a>自己紹介</h2>
+<p>リンクは「右クリック→新しいタブで開く」でお願いいたします 🙇‍♂️</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-目次" class="anchor" href="#目次" aria-hidden="true"></a>目次</h3>
+<ol>
+<li><a href="#/2">プロフィール</a></li>
+<li><a href="#/3">研究</a></li>
+<li><a href="#/4">インターン</a></li>
+<li><a href="#/5">制作物</a></li>
+</ol>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-プロフィール" class="anchor" href="#プロフィール" aria-hidden="true"></a>プロフィール</h2>
+<h3><a id="user-content-松井誠泰" class="anchor" href="#松井誠泰" aria-hidden="true"></a>松井誠泰</h3>
+<p>東京大学教養学部学際科学科B群総合情報学コース卒
+進化認知脳科学サブメジャー修了</p>
+<p>東京大学学際情報学府 学際情報学科 総合分析情報学専攻 修士1年</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-研究" class="anchor" href="#研究" aria-hidden="true"></a>研究</h2>
+<p>2019年4月~ 情報学環越塚研究室にて</p>
+<p><a href="https://www.tronshow.org/2019-tron-symposium/en/2019-TRON-Symposium-Proceedings.zip">Masahiro Matsui, Noboru Koshizuka: “Abstracted and Virtualized Development Environment for Embedded Real-Time Systems”, 2019 TRON Symposium, December 2019.</a></p>
+
+            </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h2><a id="user-content-インターン経験" class="anchor" href="#インターン経験" aria-hidden="true"></a>インターン経験</h2>
+
+            </section>
         
-       
-        <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/darkula.css">
+            <section >
+                <h3><a id="user-content-decoo-inc" class="anchor" href="#decoo-inc" aria-hidden="true"></a>Decoo, inc.</h3>
+<ul>
+<li>ディレクターとして入った後、ソーシャルゲームのプロジェクトのTL、PLなど</li>
+<li>PHP(Laravel), C#(Photon server), C++(Cocos2dx)での開発</li>
+<li>管理画面改修からクライアント・サーバー開発による機能の実装・業務の自動化など</li>
+</ul>
 
+            </section>
         
+            <section >
+                <h3><a id="user-content-retty-inc" class="anchor" href="#retty-inc" aria-hidden="true"></a>Retty, inc.</h3>
+<ul>
+<li>Bigqueryでのアドホックなデータ分析</li>
+<li>分析基盤の調査(Docker, ECSなど)</li>
+</ul>
 
-        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-        <script>
-          document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-        </script>
+            </section>
+        
+            <section >
+                <h3><a id="user-content-mercari-inc" class="anchor" href="#mercari-inc" aria-hidden="true"></a>Mercari, inc.</h3>
+<ul>
+<li>米テキサスでのユーザーインタビューと施策提案</li>
+<li>プロトタイプ開発(Swift, webview)</li>
+<li>プレゼンテーション</li>
+</ul>
 
-        <style type="text/css">
-            @page {    
-              margin: 0;
-              size: auto; 
-            }
-        </style>
-
-        <script>
-         if(window.location.search.match( /print-pdf-now/gi )) {
-           window.print();
-         }
-      </script>
-
-    </head>
-    <body>
-
-        <div class="reveal">
-            <div class="slides"><section  data-markdown><script type="text/template">
-## 自己紹介
-
-リンクは「右クリック→新しいタブで開く」でお願いいたします 🙇‍♂️
-</script></section><section  data-markdown><script type="text/template">
-### 目次
-
-1. [プロフィール](#/2) 
-2. [インターン](#/3)
-3. [制作物](#/4)
-4. [研究方針](#/5)
-</script></section><section  data-markdown><script type="text/template">
-## プロフィール
-
-### 松井誠泰
-
-東京大学教養学部学際科学科B群総合情報学コース
-
-進化認知脳科学サブメジャー
-
-4年・2020卒
-</script></section><section ><section data-markdown><script type="text/template">
-## インターン経験
-</script></section><section data-markdown><script type="text/template">
-### Decoo, inc.
-
-- ディレクターとして入った後、ソーシャルゲームのプロジェクトのTL、PLなど
-- PHP(Laravel), C#(Photon server), C++(Cocos2dx)での開発
-- 管理画面改修からクライアント・サーバー開発による機能の実装・業務の自動化など
-</script></section><section data-markdown><script type="text/template">
-### Retty, inc.
-
-- Bigqueryでのアドホックなデータ分析
-- 分析基盤の調査(Docker, ECSなど)
-</script></section><section data-markdown><script type="text/template">
-### Mercari, inc.
-
-- 米テキサスでのユーザーインタビューと施策提案
-- プロトタイプ開発(Swift, webview)
-- プレゼンテーション
-</script></section><section data-markdown><script type="text/template">
-### Uniaim, inc.
-
-- POSシステムのAndroidクライアント(Java)開発
-- Python(flask), PHP(codeigniter)でのサーバーサイド開発
-
+            </section>
+        
+            <section >
+                <h3><a id="user-content-uniaim-inc" class="anchor" href="#uniaim-inc" aria-hidden="true"></a>Uniaim, inc.</h3>
+<ul>
+<li>POSシステムのAndroidクライアント(Java)開発</li>
+<li>Python(flask), PHP(codeigniter)でのサーバーサイド開発</li>
+</ul>
 <!-- --
 
 ### Gino, inc.
@@ -89,155 +376,413 @@ Paiza
 競技プログラミング問題のレビュー
 
 [](http://atcoder.jp/users/Matts966) -->
-</script></section><section data-markdown><script type="text/template">
-### Google Japan GK
-
-OCRを用いるサービスの精度改善を行う開発
-
-- 自然言語処理（言語モデル）に関する調査
-- 画像識別課題への方針転換
-- 転移学習での実装
-- 軽量なモデルの選択による高速化
-</script></section><section data-markdown><script type="text/template">
-### [Akatsuki, inc.](http://matts966.github.io/slides/aktsk-export)
-
-- GAE/Go での共通基盤開発
-  - Taskqueue上のデータの向き先変更・サービスの分離など
-- 正確なエラー伝播のための静的解析ツールの改善
-  - その一部を[OSS版でも貢献](http://github.com/sachaos/xerrchk/pull/2)
-</script></section><section data-markdown><script type="text/template">
-### Mirrativ, inc.
-
-- インフラチーム
-- WebRTCサーバーの可用性設計や監視機能の実装など
-- Go, GCPやCoreOSを用いた開発、RFCの調査・実装など
-</script></section></section><section ><section data-markdown><script type="text/template">
-## 制作物
-</script></section><section data-markdown><script type="text/template">
-だいたいブログ内の [このページ](http://tech-navy.tech/portfolio/) に載っています
-</script></section><section data-markdown><script type="text/template">
-### [Phics](https://phics.tech-navy.tech/)
-
-グラフィクス生成Webアプリケーション
-</script></section><section data-markdown><script type="text/template">
-### [Gosp](https://github.com/Matts966/gosp)
-
-LispインタプリタのGo言語実装
-
-[紹介スライド](https://matts966.github.io/slides/slides-src/gosp-export/#/)
-</script></section><section data-markdown><script type="text/template">
-### 機械学習関連
-</script></section><section data-markdown><script type="text/template">
-<p style="text-align:left;">機械学習</p>
-
-[ナイーブベイズ法による著者分類](http://github.com/Matts966/pyLearningAndStats/tree/master/infoEng3)
-
-[ipynb](http://github.com/Matts966/pyLearningAndStats/blob/master/infoEng3/WriterClassificationByNaiveBayesWithoutMyName.ipynb)
-</script></section><section data-markdown><script type="text/template">
-<p style="text-align:left;">機械学習</p>
-
-[Q学習、SARSA学習によるOpenAIGym課題の実装](http://github.com/Matts966/pyLearningAndStats/tree/master/last_assignment)
-
-[ipynb](http://github.com/Matts966/pyLearningAndStats/blob/master/last_assignment/%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C.ipynb)
-</script></section><section data-markdown><script type="text/template">
-<p style="text-align:left;">機械学習</p>
-
-[三目並べを深層強化学習とMiniMax法で実装し、比較する実験](http://github.com/Matts966/pyLearningAndStats/tree/master/DQN)
-
-[pdf](http://github.com/Matts966/pyLearningAndStats/blob/master/DQN/report_sample.pdf)
-</script></section><section data-markdown><script type="text/template">
-<p style="text-align:left;">機械学習</p>
-
-[深層強化学習をNumpyから実装しようとした実験](http://github.com/Matts966/deep-learning-from-scratch/tree/master/kaneko_lab)
-
-[ipynb](http://github.com/Matts966/deep-learning-from-scratch/blob/master/kaneko_lab/%E6%9C%80%E7%B5%82%E6%8F%90%E5%87%BA-%E3%81%BE%E3%81%A8%E3%82%81.ipynb)
-</script></section></section><section  data-markdown><script type="text/template">
-## 研究方針
-
-2019年4月~ 情報学環越塚研究室にて
-
-- RTOSに特化したDSLの提案を予定（プロトタイプ開発中）
-- IoT分野への機械学習の応用研究なども調査・検討中
-</script></section></div>
-        </div>
-
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-
-        <script>
-            function extend() {
-              var target = {};
-              for (var i = 0; i < arguments.length; i++) {
-                var source = arguments[i];
-                for (var key in source) {
-                  if (source.hasOwnProperty(key)) {
-                    target[key] = source[key];
-                  }
-                }
-              }
-              return target;
-            }
-            // Optional libraries used to extend on reveal.js
-            var deps = [
-              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-              { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-              { src: 'plugin/math/math.js', async: true }
-            ];
-            // default options to init reveal.js
-            var defaultOptions = {
-              controls: true,
-              progress: true,
-              history: true,
-              center: true,
-              transition: 'default',
-              dependencies: deps
-            };
-            // options from URL query string
-            var queryOptions = Reveal.getQueryHash() || {};
-            var options = {
-  "notesSeparator": "note:",
-  "separator": "^[\r\n?|\n]---[\r\n?|\n]$",
-  "verticalSeparator": "^[\r\n?|\n]--[\r\n?|\n]$",
-  "theme": "night",
-  "highlightTheme": "darkula",
-  "controls": true,
-  "progress": true,
-  "slideNumber": false,
-  "history": true,
-  "keyboard": true,
-  "overview": true,
-  "center": true,
-  "touch": true,
-  "loop": false,
-  "rtl": false,
-  "shuffle": false,
-  "fragments": true,
-  "embedded": false,
-  "help": true,
-  "showNotes": false,
-  "autoSlide": 0,
-  "autoSlideStoppable": true,
-  "mouseWheel": false,
-  "hideAddressBar": true,
-  "previewLinks": true,
-  "transition": "convex",
-  "transitionSpeed": "default",
-  "backgroundTransition": "convex",
-  "viewDistance": 3,
-  "parallaxBackgroundImage": "",
-  "parallaxBackgroundSize": "",
-  "parallaxBackgroundHorizontal": null,
-  "parallaxBackgroundVertical": null,
-  "title": "Introduction",
-  "attributes": ""
-};
-            options = extend(defaultOptions, options, queryOptions);
-            Reveal.initialize(options);
-
-        </script>
+            </section>
         
-    </body>
+            <section >
+                <h3><a id="user-content-google-japan-gk" class="anchor" href="#google-japan-gk" aria-hidden="true"></a>Google Japan GK</h3>
+<p>OCRを用いるサービスの精度改善を行う開発</p>
+<ul>
+<li>自然言語処理（言語モデル）に関する調査</li>
+<li>画像識別課題への方針転換</li>
+<li>転移学習での実装</li>
+<li>軽量なモデルの選択による高速化</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-akatsuki-inc" class="anchor" href="#akatsuki-inc" aria-hidden="true"></a><a href="http://matts966.github.io/slides/aktsk-export">Akatsuki, inc.</a></h3>
+<ul>
+<li>GAE/Go での共通基盤開発
+<ul>
+<li>Taskqueue上のデータの向き先変更・サービスの分離など</li>
+</ul>
+</li>
+<li>正確なエラー伝播のための静的解析ツールの改善
+<ul>
+<li>その一部を<a href="http://github.com/sachaos/xerrchk/pull/2">OSS版でも貢献</a></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-mirrativ-inc" class="anchor" href="#mirrativ-inc" aria-hidden="true"></a>Mirrativ, inc.</h3>
+<ul>
+<li>
+<p>インフラチーム</p>
+<ul>
+<li>WebRTCサーバーの可用性設計や監視機能の実装など</li>
+<li>Go, GCPやCoreOSを用いた開発、RFCの調査・実装など</li>
+<li>レプリ遅延のテスト環境での再現</li>
+</ul>
+</li>
+<li>
+<p>Androidチーム</p>
+<ul>
+<li>GooglePlayベストオブ2019を獲得したMirrativアプリの開発</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-merpay-inc" class="anchor" href="#merpay-inc" aria-hidden="true"></a>Merpay, inc.</h3>
+<ul>
+<li>エキスパートチーム</li>
+<li>Go言語での静的解析ツールを開発
+<ul>
+<li><a href="http://github.com/Matts966/genssa">github.com/Matts966/genssa</a></li>
+<li><a href="http://github.com/Matts966/genast">github.com/Matts966/genast</a></li>
+<li><a href="http://github.com/Matts966/genelizer">github.com/Matts966/genelizer</a></li>
+<li><a href="http://github.com/Matts966/refsafe">github.com/Matts966/refsafe</a></li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-jdsc" class="anchor" href="#jdsc" aria-hidden="true"></a>JDSC</h3>
+<ul>
+<li>初のエンジニアインターンとして入社</li>
+<li>MLパイプライン構築・整備</li>
+<li>SQLテスト等の基盤技術開発</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h2><a id="user-content-制作物" class="anchor" href="#制作物" aria-hidden="true"></a>制作物</h2>
+
+            </section>
+        
+            <section >
+                <p>だいたいブログ内の <a href="http://tech-navy.tech/portfolio/">このページ</a> に載っています</p>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-phics" class="anchor" href="#phics" aria-hidden="true"></a><a href="https://phics.tech-navy.tech/">Phics</a></h3>
+<p>グラフィクス生成Webアプリケーション</p>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-gosp" class="anchor" href="#gosp" aria-hidden="true"></a><a href="https://github.com/Matts966/gosp">Gosp</a></h3>
+<p>LispインタプリタのGo言語実装</p>
+<p><a href="https://matts966.github.io/slides/slides-src/gosp-export/#/">紹介スライド</a></p>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-機械学習関連" class="anchor" href="#機械学習関連" aria-hidden="true"></a>機械学習関連</h3>
+
+            </section>
+        
+            <section >
+                <p style="text-align:left;">機械学習</p>
+<p><a href="http://github.com/Matts966/pyLearningAndStats/tree/master/infoEng3">ナイーブベイズ法による著者分類</a></p>
+<p><a href="http://github.com/Matts966/pyLearningAndStats/blob/master/infoEng3/WriterClassificationByNaiveBayesWithoutMyName.ipynb">ipynb</a></p>
+
+            </section>
+        
+            <section >
+                <p style="text-align:left;">機械学習</p>
+<p><a href="http://github.com/Matts966/pyLearningAndStats/tree/master/last_assignment">Q学習、SARSA学習によるOpenAIGym課題の実装</a></p>
+<p><a href="http://github.com/Matts966/pyLearningAndStats/blob/master/last_assignment/%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C.ipynb">ipynb</a></p>
+
+            </section>
+        
+            <section >
+                <p style="text-align:left;">機械学習</p>
+<p><a href="http://github.com/Matts966/pyLearningAndStats/tree/master/DQN">三目並べを深層強化学習とMiniMax法で実装し、比較する実験</a></p>
+<p><a href="http://github.com/Matts966/pyLearningAndStats/blob/master/DQN/report_sample.pdf">pdf</a></p>
+
+            </section>
+        
+            <section >
+                <p style="text-align:left;">機械学習</p>
+<p><a href="http://github.com/Matts966/deep-learning-from-scratch/tree/master/kaneko_lab">深層強化学習をNumpyから実装しようとした実験</a></p>
+<p><a href="http://github.com/Matts966/deep-learning-from-scratch/blob/master/kaneko_lab/%E6%9C%80%E7%B5%82%E6%8F%90%E5%87%BA-%E3%81%BE%E3%81%A8%E3%82%81.ipynb">ipynb</a></p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <script src="libs/reveal.js/3.8.0/lib/js/head.min.js"></script>
+  <script src="libs/reveal.js/3.8.0/js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        progress: true,
+        slideNumber: false,
+        history: true,
+        keyboard: true,
+        overview: true,
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: false,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: false,
+        autoSlide: 0,
+        autoSlideStoppable: true,
+        autoSlideMethod: Reveal.navigateNext,
+        defaultTiming: 120,
+        mouseWheel: false,
+        hideAddressBar: true,
+        previewLinks: true,
+        transition: 'convex',
+        transitionSpeed: 'default',
+        backgroundTransition: 'convex',
+        viewDistance: 3,
+        parallaxBackgroundImage: '',
+        parallaxBackgroundSize: '',
+        parallaxBackgroundHorizontal: 0,
+        parallaxBackgroundVertical: 0,
+        display: 'block',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'libs/reveal.js/3.8.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+            // { src: 'libs/reveal.js/3.8.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            // { src: 'libs/reveal.js/3.8.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            // { src: 'libs/reveal.js/3.8.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+            { src: 'libs/reveal.js/3.8.0/plugin/notes/notes.js', async: true },
+            { src: 'libs/reveal.js/3.8.0/plugin/chart/Chart.min.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/chart/csv2chart.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/embed-tweet/embed-tweet.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/math/math.js', async: true },
+            { src: 'libs/highlight.js/9.12.0/highlight.js', async: true },
+            { src: 'libs/reveal.js/3.8.0/plugin/anything/anything.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },	
+
+           
+        { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+           
+
+           
+        { src: 'libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
+            
+
+            
+        { src: 'libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
+            
+
+            
+        { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
+
+            
+        { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            
+
+        {
+            src: 'libs/highlight.js/9.12.0/reveal-code-focus-1.0.0-mod.js',
+            async: true,
+            callback: function () {
+                RevealCodeFocus();
+            }
+        },
+            // { src: 'libs/reveal.js/3.8.0/plugin/reveal-code-focus/highlight.pack.js' },
+            // { src: 'libs/reveal.js/3.8.0/plugin/reveal-code-focus/reveal-code-focus.js', async: true, callback: function() { RevealCodeFocus(); } },
+           // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        ]
+        ,
+    keyboard: {
+        67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+        66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+        46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+        8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+        68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+    },
+    math: {
+       // mathjax: 'libs/reveal.js/3.8.0/plugin/math/MathJax.js',
+             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+    },
+    chart: {
+        defaults: {
+            global: {
+                title: { fontColor: "#FFF" },
+                legend: {
+                    position: "bottom",
+                        labels: { fontColor: "#FFF" },
+                },
+                tooltips: {
+                    labels: { fontColor: "#FFF" },
+                },
+            },
+            scale: {
+                scaleLabel: { fontColor: "#FFF" },
+                gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
+                ticks: { fontColor: "#FFF" },
+            }
+        },
+        line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
+        bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+        pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+        radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+    },
+    anything: [ 
+	 {
+	  className: "mermaid"
+	 },
+	 // ...
+	],
+    menu: {
+        // Specifies which side of the presentation the menu will 
+        // be shown. Use 'left' or 'right'.
+        side: 'left',
+
+            // Specifies the width of the menu.
+            // Can be one of the following:
+            // 'normal', 'wide', 'third', 'half', 'full', or
+            // any valid css length value
+            width: 'normal',
+
+                // Add slide numbers to the titles in the slide list.
+                // Use 'true' or format string (same as reveal.js slide numbers)
+                numbers: false,
+
+                    // Specifies which slide elements will be used for generating
+                    // the slide titles in the menu. The default selects the first
+                    // heading element found in the slide, but you can specify any
+                    // valid css selector and the text from the first matching
+                    // element will be used.
+                    // Note: that a section data-menu-title attribute or an element
+                    // with a menu-title class will take precedence over this option
+                    titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+                        // If slides do not have a matching title, attempt to use the
+                        // start of the text content as the title instead
+                        useTextContentForMissingTitles: false,
+
+                            // Hide slides from the menu that do not have a title.
+                            // Set to 'true' to only list slides with titles.
+                            hideMissingTitles: false,
+
+                                // Adds markers to the slide titles to indicate the 
+                                // progress through the presentation. Set to 'false'
+                                // to hide the markers.
+                                markers: true,
+
+                                    // Specify custom panels to be included in the menu, by
+                                    // providing an array of objects with 'title', 'icon'
+                                    // properties, and either a 'src' or 'content' property.
+                                    // custom: false,
+                                    custom: [],
+                                        // Specifies the themes that will be available in the themes
+                                        // menu panel. Set to 'true' to show the themes menu panel
+                                        // with the default themes list. Alternatively, provide an
+                                        // array to specify the themes to make available in the
+                                        // themes menu panel, for example...
+                                        // [
+                                        //     { name: 'Black', theme: 'css/theme/black.css' },
+                                        //     { name: 'White', theme: 'css/theme/white.css' },
+                                        //     { name: 'League', theme: 'css/theme/league.css' }
+                                        // ]
+                                        themes: false,
+
+                                            // Specifies the path to the default theme files. If your
+                                            // presentation uses a different path to the standard reveal
+                                            // layout then you need to provide this option, but only
+                                            // when 'themes' is set to 'true'. If you provide your own 
+                                            // list of themes or 'themes' is set to 'false' the 
+                                            // 'themesPath' option is ignored.
+                                            themesPath: 'css/theme/',
+
+                                                // Specifies if the transitions menu panel will be shown.
+                                                // Set to 'true' to show the transitions menu panel with
+                                                // the default transitions list. Alternatively, provide an
+                                                // array to specify the transitions to make available in
+                                                // the transitions panel, for example...
+                                                // ['None', 'Fade', 'Slide']
+                                                transitions: false,
+
+                                                    // Adds a menu button to the slides to open the menu panel.
+                                                    // Set to 'false' to hide the button.
+                                                    openButton: true,
+
+                                                        // If 'true' allows the slide number in the presentation to
+                                                        // open the menu panel. The reveal.js slideNumber option must 
+                                                        // be displayed for this to take effect
+                                                        openSlideNumber: false,
+
+                                                            // If true allows the user to open and navigate the menu using
+                                                            // the keyboard. Standard keyboard interaction with reveal
+                                                            // will be disabled while the menu is open.
+                                                            keyboard: true,
+
+                                                                // Normally the menu will close on user actions such as
+                                                                // selecting a menu item, or clicking the presentation area.
+                                                                // If 'true', the sticky option will leave the menu open
+                                                                // until it is explicitly closed, that is, using the close
+                                                                // button or pressing the ESC or m key (when the keyboard 
+                                                                // interaction option is enabled).
+                                                                sticky: false,
+
+                                                                    // If 'true' standard menu items will be automatically opened
+                                                                    // when navigating using the keyboard. Note: this only takes 
+                                                                    // effect when both the 'keyboard' and 'sticky' options are enabled.
+                                                                    autoOpen: true,
+
+                                                                        // If 'true' the menu will not be created until it is explicitly
+                                                                        // requested by calling RevealMenu.init(). Note this will delay
+                                                                        // the creation of all menu panels, including custom panels, and
+                                                                        // the menu button.
+                                                                        delayInit: false,
+
+                                                                            // If 'true' the menu will be shown when the menu is initialised.
+                                                                            openOnInit: false,
+
+                                                                                // By default the menu will load it's own font-awesome library
+                                                                                // icons. If your presentation needs to load a different
+                                                                                // font-awesome library the 'loadIcons' option can be set to false
+                                                                                // and the menu will not attempt to load the font-awesome library.
+                                                                                loadIcons: false
+    },
+    chalkboard: {
+        toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+        toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+
+    }
+    });
+
+
+
+</script>
+</body>
+
 </html>
