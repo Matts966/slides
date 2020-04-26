@@ -111,7 +111,7 @@ OCRを用いるサービスの精度改善を行う開発
   - レプリ遅延のテスト環境での再現
 
 - Androidチーム
-  - GooglePlayベストオブ2019を獲得したMirrativアプリの開発
+  - [GooglePlayベストオブ2019](https://prtimes.jp/main/html/rd/p/000000059.000033025.html)を獲得したMirrativアプリの開発
 
 --
 
