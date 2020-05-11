@@ -9,3 +9,5 @@
 [IoT](./slides-src/iot-export/)
 
 [aktsk](./slides-src/aktsk-export/)
+
+[PRML](./slides-src/PRML/index/)

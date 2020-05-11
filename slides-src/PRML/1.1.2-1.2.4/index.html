@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>title</title>
+  <title>PRML 1.2.2 ~ 1.2.4</title>
 
   <meta name="description" content="">
   <meta name="author" content="">
@@ -96,7 +96,7 @@
 
   <!-- Theme used for syntax highlighting of code -->
   
-  <link rel="stylesheet" href="libs/highlight.js/9.12.0/Zenburn.css">
+  <link rel="stylesheet" href="libs/highlight.js/9.12.0/darkula.css">
   
 
   
@@ -275,13 +275,445 @@
     
         <section >
             
-            <h1><a id="user-content-slides" class="anchor" href="#slides" aria-hidden="true"></a>Slides</h1>
-<p><a href="./slides-src/intro-export/">intro</a></p>
-<p><a href="./slides-src/gosp-export/">gosp</a></p>
-<p><a href="./slides-src/phics-export/">phics</a></p>
-<p><a href="./slides-src/iot-export/">IoT</a></p>
-<p><a href="./slides-src/aktsk-export/">aktsk</a></p>
-<p><a href="./slides-src/PRML/index/">PRML</a></p>
+            <h1><a id="user-content-prml勉強会" class="anchor" href="#prml勉強会" aria-hidden="true"></a>PRML勉強会</h1>
+<ol>
+<li><a href="#/1">1.2.2 期待値と分散</a></li>
+<li><a href="#/2">1.2.3 ベイズ確率</a></li>
+<li><a href="#/3">1.2.4 ガウス分布</a></li>
+</ol>
+
+            </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h2><a id="user-content-122-期待値と分散" class="anchor" href="#122-期待値と分散" aria-hidden="true"></a>1.2.2 期待値と分散</h2>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-期待値" class="anchor" href="#期待値" aria-hidden="true"></a>期待値</h3>
+<ul>
+<li>
+<p>$E[f] = \sum_x p(x) f(x)$</p>
+</li>
+<li>
+<p>$E[f] = \int p(x) f(x) dx$</p>
+</li>
+<li>
+<p>$E[f] \simeq \frac{1}{N} \sum_{n=1}^{N} f(x_n)$</p>
+<ul>
+<li>離散・連続を問わず有限の$N$点で近似可能</li>
+<li>$N \rightarrow \infty$ の極限で厳密になる。</li>
+<li>サンプリング（11章）などで用いる</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h4><a id="user-content-多変数の場合、平均を取る変数を指定する" class="anchor" href="#多変数の場合、平均を取る変数を指定する" aria-hidden="true"></a>多変数の場合、平均を取る変数を指定する</h4>
+<p>$E_\color{red}{x}[f(\color{red}{x}, y)]$</p>
+<p>この場合、 $x$ について周辺化されており、結果は $y$ についての関数になる。</p>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-条件付き期待値" class="anchor" href="#条件付き期待値" aria-hidden="true"></a>条件付き期待値</h3>
+<ul>
+<li>
+<p>$E_x[f|y] = \sum_x p(x|y)f(x)$</p>
+<ul>
+<li>条件付き確率に事前条件が反映されるだけ</li>
+</ul>
+</li>
+<li>
+<p>連続変数についても同様</p>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-分散" class="anchor" href="#分散" aria-hidden="true"></a>分散</h3>
+<ul>
+<li>
+<p>$var[f] = E[(f(x) - E[f(x)])^2]$</p>
+<ul>
+<li>$f(x)$ がその平均値 $E[f(x)]$ の周りでどれだけばらつくか、を表す</li>
+</ul>
+</li>
+<li>
+<p>$var(x) = E[(x - E[x])^2]$</p>
+<ul>
+<li>確率変数 $x$ についても分散を考えたもの</li>
+<li>恒等関数をとるのと同義</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <div style="text-align:left;">
+<h3><a id="user-content-分散の公式" class="anchor" href="#分散の公式" aria-hidden="true"></a>分散の公式</h3>
+<p>$var[f]$</p>
+<p>$= E[(f(x) - E[f(x)])^2]$
+$= E[f(x)^2 - 2 f(x) E[f(x)] + E[f(x)]^2]$
+$= E[f(x)^2] - 2 E[f(x) E[f(x)]] + E[E[f(x)]^2]$
+$= E[f(x)^2] - 2 E[f(x)] E[f(x)] + E[f(x)]^2 \cdots (\ast)$
+$= E[f(x)^2] - E[f(x)]^2$</p>
+<p>$\ast$ 期待値の期待値は期待値</p>
+<div>
+            </section>
+        
+            <section >
+                <div style="text-align:left;">
+<h3><a id="user-content-共分散" class="anchor" href="#共分散" aria-hidden="true"></a>共分散</h3>
+<p>$cov[x, y]$</p>
+<p>$= E_{x, y}[\{x-E[x]\}\{y-E[y]\}]$
+$= E_{x, y}[x y] - E[x]E[y]$</p>
+<p>$x$ と $y$ が同時に変動する度合い</p>
+<div>
+            </section>
+        
+            <section >
+                <h4><a id="user-content-独立であれば共分散は0" class="anchor" href="#独立であれば共分散は0" aria-hidden="true"></a>独立であれば共分散は0</h4>
+<ul>
+<li>
+<p>直感的には、</p>
+<ul>
+<li>独立 $\Leftrightarrow$ 『同時に変動する度合い』が0</li>
+</ul>
+</li>
+<li>
+<p>$E_{x, y}[x y] = E[x]E[y]$ を示せば良い</p>
+<ul>
+<li>→ 次ページ</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <div style="text-align:left;">
+<h4><a id="user-content-演習16" class="anchor" href="#演習16" aria-hidden="true"></a>演習1.6</h4>
+<p>独立の定義 $p(x, y) = p(x) p(y)$ より</p>
+<p>$E_{x, y}[x y]$</p>
+<p>$= \int\int p(x, y) xy dx dy$</p>
+<p>$= \int\int (p(x) x) (p(y) y) dx dy$</p>
+<p>$= \int p(x) x dx \int p(y) y dy$</p>
+<p>$= E[x]E[y]$</p>
+<div>
+            </section>
+        
+            <section >
+                <div style="text-align:left;">
+<h3><a id="user-content-確率変数ベクトルの共分散" class="anchor" href="#確率変数ベクトルの共分散" aria-hidden="true"></a>確率変数ベクトルの共分散</h3>
+<p>$cov[\mathbf{x}, \mathbf{y}]$</p>
+<p>$= E_{\mathbf{x}, \mathbf{y}}[\{\mathbf{x}-E[\mathbf{x}]\}\{\mathbf{y}-E[\mathbf{y}]\}]$
+$= E_{\mathbf{x}, \mathbf{y}}[\mathbf{x} \mathbf{y}^\mathrm{T}] - E[\mathbf{x}]E[\mathbf{y}^\mathrm{T}]$</p>
+<ul>
+<li>
+<p>確率変数ベクトル $\mathbf{x}$, $\mathbf{y}$ に関する共分散を表す行列</p>
+</li>
+<li>
+<p>ベクトル $\mathbf{x}$ の成分間の共分散は、 $cov[\mathbf{x}] \equiv cov[\mathbf{x}, \mathbf{x}]$</p>
+<ul>
+<li>分散共分散行列（対角成分には分散、非対角成分には共分散）</li>
+</ul>
+</li>
+</ul>
+<div>
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h2><a id="user-content-123-ベイズ確率" class="anchor" href="#123-ベイズ確率" aria-hidden="true"></a>1.2.3 ベイズ確率</h2>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ベイズ-vs-頻度主義" class="anchor" href="#ベイズ-vs-頻度主義" aria-hidden="true"></a>ベイズ vs 頻度主義</h3>
+<ul>
+<li>頻度主義的・古典的確率
+<ul>
+<li>確率は、ランダムな繰り返し試行の頻度</li>
+</ul>
+</li>
+<li>ベイズ的確率
+<ul>
+<li>確率は不確実性の度合い</li>
+<li>事前分布という信念を導入する</li>
+</ul>
+</li>
+<li>どこまで主観性を認めるかが違い</li>
+<li>PRMLでは、有用な場面ではどちらも用いる（ベイズ多め）</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ベイズ確率を採用する根拠" class="anchor" href="#ベイズ確率を採用する根拠" aria-hidden="true"></a>ベイズ確率を採用する根拠</h3>
+<ul>
+<li>確率の加法・乗法定理（ベイズの定理）が、信念の定量化・操作のための単純な公理集合から導かれる (Cox, 1946)
+<ul>
+<li>確率論 $\equiv$ ブール論理を不確実性を含む場合に拡張したもの (Jaynes, 2003)</li>
+</ul>
+</li>
+<li>その他にも多くの提案されている性質や公理が、確率の乗法・加法定理に従う</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ベイズ確率" class="anchor" href="#ベイズ確率" aria-hidden="true"></a>ベイズ確率</h3>
+<p>$p(\mathbf{w}|D) = \frac{p(D|\mathbf{w}) p(\mathbf{w})}{p(D)}$</p>
+<p>事後確率 $\propto$ 尤度 $(p(D|\mathbf{w})) \times$ 事前確率</p>
+<ul>
+<li>データを観測する前に$\mathbf{w}$に関する仮説を事前分布$p(\mathbf{w})$として表現できる</li>
+<li>$D$というデータを得た <strong>事後</strong> の、$\mathbf{w}$の不確実性を評価できる</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ベイズ確率-1" class="anchor" href="#ベイズ確率-1" aria-hidden="true"></a>ベイズ確率</h3>
+<p>$p(D) = \int p(D|\mathbf{w}) p(\mathbf{w}) d\mathbf{w}$</p>
+<ul>
+<li>$尤度(p(D|\mathbf{w}))$は確率分布ではない（積分は1になるとは限らない）</li>
+<li>$p(D)$は、事後確率$p(\mathbf{w}|D)$を確率分布にするための定数</li>
+<li>事後確率$p(\mathbf{w}|D)$、 尤度$p(D|\mathbf{w})$、事前確率$p(\mathbf{w})$はすべて$\mathbf{w}$の関数となっている</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-尤度関数" class="anchor" href="#尤度関数" aria-hidden="true"></a>尤度関数</h3>
+<ul>
+<li>ベイズ・頻度主義どちらでも重要となる</li>
+<li>ベイズでは
+<ul>
+<li>データ$D$のみがあり、 $\mathbf{w}$は確率分布</li>
+</ul>
+</li>
+<li>頻度主義では
+<ul>
+<li>$\mathbf{w}$は固定パラメータ、推定量として</li>
+<li>データ$D$の分布を考慮して得る（最尤推定）</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-事前分布" class="anchor" href="#事前分布" aria-hidden="true"></a>事前分布</h3>
+<ul>
+<li>頻度主義では、コイン投げで3回連続で表が出ると、表が出る確率は100％になる</li>
+<li>ベイズ確率で、事前分布を導入すれば、それほど極端な値にはならない
+<ul>
+<li>逆に言えば、悪い事前分布を選べば高確率で悪い結果になる
+<ul>
+<li>この場合、頻度主義では、交差確認（1.3節）を使える</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ベイズの計算コスト" class="anchor" href="#ベイズの計算コスト" aria-hidden="true"></a>ベイズの計算コスト</h3>
+<ul>
+<li>モデル選択や予測に必要な <strong>周辺尤度（エビデンス）</strong> $p(D)$ の計算が重い
+<ul>
+<li>$p(D) = \sum_{\mathbf{w}} p(D|\mathbf{w}) p(\mathbf{w})$</li>
+<li>離散の場合は組み合わせ爆発</li>
+<li>連続の場合には積分が解析不可能
+<ul>
+<li>ガウス分布等であれば解析も可能</li>
+</ul>
+</li>
+<li>MCMC（サンプリング法, 11章）や計算機の発達により実用的に</li>
+<li>変分ベイズやEP法（期待値伝播法）等の決定論的近似法（10章）も寄与</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h2><a id="user-content-124-ガウス分布" class="anchor" href="#124-ガウス分布" aria-hidden="true"></a>1.2.4 ガウス分布</h2>
+<img src="./images/prml/Figure1.13.png" style="max-width:40%;background:white;" alt="figure1.13">
+            </section>
+        
+            <section >
+                <h4><a id="user-content-ガウス分布" class="anchor" href="#ガウス分布" aria-hidden="true"></a>ガウス分布</h4>
+<p>$N(x | \mu, \sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}}\exp\{-\frac{1}{2\sigma^2} (x-\mu)^2\}$</p>
+<ul>
+<li>$\beta = 1 / \sigma^2$ を精度パラメータという</li>
+<li>確率密度である
+<ul>
+<li>$N(x | \mu, \sigma^2) &gt; 0$</li>
+<li>$\int N(x | \mu, \sigma^2) dx = 1$</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h4><a id="user-content-ガウス分布-1" class="anchor" href="#ガウス分布-1" aria-hidden="true"></a>ガウス分布</h4>
+<ul>
+<li>期待値・平均値 $\mu$</li>
+<li>2次モーメント $E[x^2] = \int N(x | \mu, \sigma^2) x^2 dx = \mu^2 + \sigma^2$</li>
+<li>よって分散は $var[x] = E[x^2] - E[x]^2 = \sigma^2$</li>
+<li>最頻値は平均値に一致</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-多変量正規分布" class="anchor" href="#多変量正規分布" aria-hidden="true"></a>多変量正規分布</h3>
+<p>$N(\mathbf{x}|\mathbb{\mu}, \mathbb{\sum}) = \frac{1}{(2\pi)^{D/2}} \frac{1}{(|\mathbb{\sum}|)^{1/2}} \exp\{-\frac{1}{2} (\mathbf{x}-\mathbf{\mu})^{\mathrm{T}} \mathbb{\sum}^{-1} (\mathbf{x}-\mathbf{\mu})\}$</p>
+<ul>
+<li>多変数にしたもの</li>
+<li>$\sum$は共分散</li>
+<li>$|\sum|$は共分散の行列式</li>
+<li>詳細は2.3節</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ガウス分布のパラメータ推定" class="anchor" href="#ガウス分布のパラメータ推定" aria-hidden="true"></a>ガウス分布のパラメータ推定</h3>
+<ul>
+<li>N個のデータ点が同じガウス分布から独立に生成されるとする</li>
+<li>データ点が同じ分布から独立に生成されることを、 <strong>独立同分布(i.i.d.)</strong> という
+<ul>
+<li>independent identically distributed</li>
+</ul>
+</li>
+<li>パラメータ$\mu, \sigma^2$を求めたい</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ガウス分布に対する尤度関数" class="anchor" href="#ガウス分布に対する尤度関数" aria-hidden="true"></a>ガウス分布に対する尤度関数</h3>
+<p>$p(\mathbf{x}|\mu,\sigma^w) = \prod_{n=1}^N N(x_n|\mu, \sigma^2)$</p>
+<ul>
+<li>独立な確率変数集合の同時分布なので、積をとればよい</li>
+<li>与えられたデータの同時確率を最大化するパラメータを求めれば良い</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-ガウス分布に対する尤度関数の図示" class="anchor" href="#ガウス分布に対する尤度関数の図示" aria-hidden="true"></a>ガウス分布に対する尤度関数の図示</h3>
+<img src="./images/prml/Figure1.14.png" style="max-width:40%;background:white;" alt="figure1.14">
+<ul>
+<li>イメージとしては、最大化することで、多くのデータが集まるところに最頻値を持ってこれる</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-尤度関数の最大化" class="anchor" href="#尤度関数の最大化" aria-hidden="true"></a>尤度関数の最大化</h3>
+<p>$\ln p(\mathbf{x}|\mu, \sigma^2) = - \frac{1}{2\sigma^2} \sum_{n=1}^{N} (x_n - \mu)^2 - \frac{N}{2} \ln\sigma^2 - \frac{N}{2}\ln(2\pi)$</p>
+<ul>
+<li>$\mu$, $\sigma$に関して同時最大化</li>
+<li>単調増加な対数をとる
+<ul>
+<li>解析が容易になる</li>
+<li>アンダーフロー防止（確率の積が和に変わる）</li>
+</ul>
+</li>
+<li>標本平均と標本分散を得る</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-尤度関数の最大化-1" class="anchor" href="#尤度関数の最大化-1" aria-hidden="true"></a>尤度関数の最大化</h3>
+<ul>
+<li>最尤推定（Maximum Likelihood）の問題
+<ul>
+<li>分散が過小評価される（バイアス）</li>
+<li>$E[\sigma^2_{ML}] = \frac{N-1}{N} \sigma^2$</li>
+<li>サンプル数が増えればバイアスも減る</li>
+<li>過学習に関連</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section >
+                <h3><a id="user-content-分散の過小評価の直感的説明" class="anchor" href="#分散の過小評価の直感的説明" aria-hidden="true"></a>分散の過小評価の直感的説明</h3>
+<ul>
+<li>各データ集合に2点のみ</li>
+<li>平均の平均は真の平均に見えるが、</li>
+<li>分散はどれも $\frac{1}{2}$ に過小評価されている</li>
+</ul>
+<img src="./images/prml/Figure1.15.png" style="max-width:40%;background:white;" alt="figure1.15">
+            </section>
+        
+            <section >
+                <div style="text-align:left;">
+<h4><a id="user-content-分散の過小評価の証明" class="anchor" href="#分散の過小評価の証明" aria-hidden="true"></a>分散の過小評価の証明</h4>
+<p>$E(\sigma^2_{ML})$</p>
+<p>$= E(\frac{1}{N}\sum_{n=1}^N(x_n - \mu_{ML})^2)$
+$= \frac{1}{N} E[\sum_{n=1}^N (x_n^2 - 2 x_n \mu_{ML} + \mu_{ML}^2)]$
+$= \mu^2 + \sigma^2 - \frac{2}{N} E(\sum_{n=1}^N x_n \mu_{ML}) + E(\mu_{ML}^2)$
+$= \mu^2 + \sigma^2 - \frac{2}{N^2} E[(\sum_{n=1}^N x_n)^2] + \frac{1}{N^2} E[(\sum_{n=1}^N x_n)^2]$
+$= \mu^2 + \sigma^2 - \frac{1}{N^2} E[(\sum_{n=1}^N x_n)^2]$
+$= \mu^2 + \sigma^2 - \frac{1}{N^2} [N(N\mu^2+\sigma^2)]$
+$= \frac{N-1}{N} \sigma^2$</p>
+</div>
+            </section>
+        
+            <section >
+                <h3><a id="user-content-分散パラメータの不偏推定量" class="anchor" href="#分散パラメータの不偏推定量" aria-hidden="true"></a>分散パラメータの不偏推定量</h3>
+<p>$E(\sigma^2_{ML}) = \frac{N-1}{N} \sigma^2$ より
+$\tilde{\sigma}^2 = \frac{N-1}{N} \sigma_{ML}^2 = \frac{1}{N-1} \sum_{n=1}{N} (x_n - \mu_{ML}) ^ 2$ は分散パラメータの不偏推定量</p>
+<p>10.1.3節で、この結果をベイズアプローチによって示す。</p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+        <section >
+            
+            <h1><a id="user-content-お詫び" class="anchor" href="#お詫び" aria-hidden="true"></a>お詫び</h1>
+<p>GSuiteとPowerPointの推奨を見逃しており、慣れてて楽だったのでこれで書きましたが、PDFにするときにバグがあったので、次回移行GSuiteに移行します。</p>
 
             </section>
     

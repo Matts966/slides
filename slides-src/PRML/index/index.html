@@ -15,10 +15,10 @@
   <!-- REVEAL CSS-->
   <link rel="stylesheet" href="libs/reveal.js/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="libs/reveal.js/3.8.0/css/reveal.css">
-  
+
   <link rel="stylesheet" href="libs/reveal.js/3.8.0/css/theme/night.css" id="theme">
-  
-  
+
+
   <link rel="stylesheet" href="libs/reveal.js/3.8.0/plugin/title-footer/title-footer-mod.css" />
 
   <!-- MERMAID-->
@@ -95,12 +95,12 @@
   </style>
 
   <!-- Theme used for syntax highlighting of code -->
-  
-  <link rel="stylesheet" href="libs/highlight.js/9.12.0/Zenburn.css">
-  
 
-  
-  
+  <link rel="stylesheet" href="libs/highlight.js/9.12.0/Zenburn.css">
+
+
+
+
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement('link');
@@ -115,7 +115,7 @@
      .line {
       display: block;
     }
-    
+
 
     .line.focus {
       background: #fdf6e3;
@@ -213,7 +213,7 @@
 */
     .line.focus {
        opacity: 1.0;
-    } 
+    }
 
     /* .hljs {
       background: none;
@@ -262,29 +262,24 @@
 </head>
 
 <body>
-  
+
 
   <div class="reveal">
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
-      
 
 
-    
+
+
         <section >
-            
-            <h1><a id="user-content-slides" class="anchor" href="#slides" aria-hidden="true"></a>Slides</h1>
-<p><a href="./slides-src/intro-export/">intro</a></p>
-<p><a href="./slides-src/gosp-export/">gosp</a></p>
-<p><a href="./slides-src/phics-export/">phics</a></p>
-<p><a href="./slides-src/iot-export/">IoT</a></p>
-<p><a href="./slides-src/aktsk-export/">aktsk</a></p>
-<p><a href="./slides-src/PRML/index/">PRML</a></p>
+
+            <h2><a id="user-content-prml" class="anchor" href="#prml" aria-hidden="true"></a>PRML</h2>
+<p><a href="1.2.2-1.2.4/">1.2.2-1.2.4</a></p>
 
             </section>
-    
+
 
 
     </div>
@@ -350,27 +345,27 @@
             { src: 'libs/reveal.js/3.8.0/plugin/math/math.js', async: true },
             { src: 'libs/highlight.js/9.12.0/highlight.js', async: true },
             { src: 'libs/reveal.js/3.8.0/plugin/anything/anything.js' },
-            { src: 'libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },	
+            { src: 'libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },
 
-           
+
         { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
-           
 
-           
+
+
         { src: 'libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
-            
 
-            
+
+
         { src: 'libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
-            
 
-            
+
+
         { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
-            
 
-            
+
+
         { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
-            
+
 
         {
             src: 'libs/highlight.js/9.12.0/reveal-code-focus-1.0.0-mod.js',
@@ -419,14 +414,14 @@
         pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
         radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
     },
-    anything: [ 
+    anything: [
 	 {
 	  className: "mermaid"
 	 },
 	 // ...
 	],
     menu: {
-        // Specifies which side of the presentation the menu will 
+        // Specifies which side of the presentation the menu will
         // be shown. Use 'left' or 'right'.
         side: 'left',
 
@@ -445,7 +440,7 @@
                     // heading element found in the slide, but you can specify any
                     // valid css selector and the text from the first matching
                     // element will be used.
-                    // Note: that a section data-menu-title attribute or an element
+                    // Note: t1hat a section data-menu-title attribute or an element
                     // with a menu-title class will take precedence over this option
                     titleSelector: 'h1, h2, h3, h4, h5, h6',
 
@@ -457,7 +452,7 @@
                             // Set to 'true' to only list slides with titles.
                             hideMissingTitles: false,
 
-                                // Adds markers to the slide titles to indicate the 
+                                // Adds markers to the slide titles to indicate the
                                 // progress through the presentation. Set to 'false'
                                 // to hide the markers.
                                 markers: true,
@@ -482,8 +477,8 @@
                                             // Specifies the path to the default theme files. If your
                                             // presentation uses a different path to the standard reveal
                                             // layout then you need to provide this option, but only
-                                            // when 'themes' is set to 'true'. If you provide your own 
-                                            // list of themes or 'themes' is set to 'false' the 
+                                            // when 'themes' is set to 'true'. If you provide your own
+                                            // list of themes or 'themes' is set to 'false' the
                                             // 'themesPath' option is ignored.
                                             themesPath: 'css/theme/',
 
@@ -500,7 +495,7 @@
                                                     openButton: true,
 
                                                         // If 'true' allows the slide number in the presentation to
-                                                        // open the menu panel. The reveal.js slideNumber option must 
+                                                        // open the menu panel. The reveal.js slideNumber option must
                                                         // be displayed for this to take effect
                                                         openSlideNumber: false,
 
@@ -513,12 +508,12 @@
                                                                 // selecting a menu item, or clicking the presentation area.
                                                                 // If 'true', the sticky option will leave the menu open
                                                                 // until it is explicitly closed, that is, using the close
-                                                                // button or pressing the ESC or m key (when the keyboard 
+                                                                // button or pressing the ESC or m key (when the keyboard
                                                                 // interaction option is enabled).
                                                                 sticky: false,
 
                                                                     // If 'true' standard menu items will be automatically opened
-                                                                    // when navigating using the keyboard. Note: this only takes 
+                                                                    // when navigating using the keyboard. Note: this only takes
                                                                     // effect when both the 'keyboard' and 'sticky' options are enabled.
                                                                     autoOpen: true,
 
