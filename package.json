@@ -1,0 +1,24 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "description": "This github project is for publishing my slides using github pages.",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matts966/slides.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matts966/slides/issues"
+  },
+  "homepage": "https://github.com/Matts966/slides#readme",
+  "dependencies": {
+    "mathjax-node-page": "^3.2.0"
+  }
+}
