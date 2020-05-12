@@ -8,7 +8,7 @@ fi
 
 # Use common libs on root.
 rm -rf $(dirname $1)/libs
-sed -i '' "s/\"libs\/reveal\.js/\"\.\/libs\/reveal\.js/g" $1
+sed -i '' "s/\"libs\/reveal\.js/\"/slides/libs\/reveal\.js/g" $1
 sed -i '' "s/\'libs\/reveal\.js/\'\.\/libs\/reveal\.js/g" $1
 
 # Render math.
