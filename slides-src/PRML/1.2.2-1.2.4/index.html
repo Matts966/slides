@@ -12,10 +12,10 @@
   <!-- REVEAL CSS-->
   <link rel="stylesheet" href="/slides/libs/reveal.js/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/css/reveal.css">
-
+  
   <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/css/theme/night.css" id="theme">
-
-
+  
+  
   <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/plugin/title-footer/title-footer-mod.css">
 
   <!-- MERMAID-->
@@ -92,12 +92,12 @@
   </style>
 
   <!-- Theme used for syntax highlighting of code -->
-
+  
   <link rel="stylesheet" href="libs/highlight.js/9.12.0/darkula.css">
+  
 
-
-
-
+  
+  
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement('link');
@@ -112,7 +112,7 @@
      .line {
       display: block;
     }
-
+    
 
     .line.focus {
       background: #fdf6e3;
@@ -210,7 +210,7 @@
 */
     .line.focus {
        opacity: 1.0;
-    }
+    } 
 
     /* .hljs {
       background: none;
@@ -388,19 +388,19 @@
 </style></head>
 
 <body>
-
+  
 
   <div class="reveal">
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
+      
 
 
-
-
+    
         <section>
-
+            
             <h1><a id="user-content-prml勉強会" class="anchor" href="#prml勉強会" aria-hidden="true"></a>PRML勉強会</h1>
 <ol>
 <li><a href="#/1">1.2.2 期待値と分散</a></li>
@@ -409,17 +409,17 @@
 </ol>
 
             </section>
+    
 
 
 
-
-
+    
     <section>
         <section>
             <h2><a id="user-content-122-期待値と分散" class="anchor" href="#122-期待値と分散" aria-hidden="true"></a>1.2.2 期待値と分散</h2>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-期待値" class="anchor" href="#期待値" aria-hidden="true"></a>期待値</h3>
 <ul>
@@ -440,14 +440,14 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h4><a id="user-content-多変数の場合、平均を取る変数を指定する" class="anchor" href="#多変数の場合、平均を取る変数を指定する" aria-hidden="true"></a>多変数の場合、平均を取る変数を指定する</h4>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="E_\color{red}{x}[f(\color{red}{x}, y)]"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.026em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.026em;">E</span></span></span><span class="mjx-sub" style="font-size: 80%; vertical-align: -0.187em; padding-right: 0.063em;"><span class="mjx-mstyle" style="color: red;"><span class="mjx-mrow" style="font-size: 88.4%;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span></span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">[</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.519em; padding-right: 0.06em;">f</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mstyle" style="color: red;"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.144em; padding-bottom: 0.519em;">,</span></span><span class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em; padding-right: 0.006em;">y</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">]</span></span></span></span></span></span></p>
 <p>この場合、 <span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="x"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span></span></span></span></span> について周辺化されており、結果は <span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="y"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em; padding-right: 0.006em;">y</span></span></span></span></span></span> についての関数になる。</p>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-条件付き期待値" class="anchor" href="#条件付き期待値" aria-hidden="true"></a>条件付き期待値</h3>
 <ul>
@@ -463,7 +463,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-分散" class="anchor" href="#分散" aria-hidden="true"></a>分散</h3>
 <ul>
@@ -483,7 +483,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <div style="text-align:left;">
 <h3><a id="user-content-分散の公式" class="anchor" href="#分散の公式" aria-hidden="true"></a>分散の公式</h3>
@@ -496,7 +496,7 @@
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="\ast"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.151em; padding-bottom: 0.298em;">∗</span></span></span></span></span></span> 期待値の期待値は期待値</p>
 <div>
             </div></div></section>
-
+        
             <section>
                 <div style="text-align:left;">
 <h3><a id="user-content-共分散" class="anchor" href="#共分散" aria-hidden="true"></a>共分散</h3>
@@ -506,7 +506,7 @@
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="x"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span></span></span></span></span> と <span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="y"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em; padding-right: 0.006em;">y</span></span></span></span></span></span> が同時に変動する度合い</p>
 <div>
             </div></div></section>
-
+        
             <section>
                 <h4><a id="user-content-独立であれば共分散は0" class="anchor" href="#独立であれば共分散は0" aria-hidden="true"></a>独立であれば共分散は0</h4>
 <ul>
@@ -525,7 +525,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <div style="text-align:left;">
 <h4><a id="user-content-演習16" class="anchor" href="#演習16" aria-hidden="true"></a>演習1.6</h4>
@@ -537,7 +537,7 @@
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="= E[x]E[y]"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.026em;">E</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">[</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">]</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.026em;">E</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">[</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em; padding-right: 0.006em;">y</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">]</span></span></span></span></span></span></p>
 <div>
             </div></div></section>
-
+        
             <section>
                 <div style="text-align:left;">
 <h3><a id="user-content-確率変数ベクトルの共分散" class="anchor" href="#確率変数ベクトルの共分散" aria-hidden="true"></a>確率変数ベクトルの共分散</h3>
@@ -557,20 +557,20 @@
 </ul>
 <div>
             </div></div></section>
-
+        
 
     </section>
+    
 
 
 
-
-
+    
     <section>
         <section>
             <h2><a id="user-content-123-ベイズ確率" class="anchor" href="#123-ベイズ確率" aria-hidden="true"></a>1.2.3 ベイズ確率</h2>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ベイズ-vs-頻度主義" class="anchor" href="#ベイズ-vs-頻度主義" aria-hidden="true"></a>ベイズ vs 頻度主義</h3>
 <ul>
@@ -590,7 +590,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ベイズ確率を採用する根拠" class="anchor" href="#ベイズ確率を採用する根拠" aria-hidden="true"></a>ベイズ確率を採用する根拠</h3>
 <ul>
@@ -603,7 +603,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ベイズ確率" class="anchor" href="#ベイズ確率" aria-hidden="true"></a>ベイズ確率</h3>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="p(\mathbf{w}|D) = \frac{p(D|\mathbf{w}) p(\mathbf{w})}{p(D)}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">w</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">D</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mfrac MJXc-space3"><span class="mjx-box MJXc-stacked" style="width: 3.91em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 5.53em; top: -1.706em;"><span class="mjx-mrow" style=""><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">D</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">w</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">w</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 5.53em; bottom: -0.999em;"><span class="mjx-mrow" style=""><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">D</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 3.91em;" class="mjx-line"></span></span><span style="height: 1.913em; vertical-align: -0.707em;" class="mjx-vsize"></span></span></span></span></span></span></p>
@@ -614,7 +614,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ベイズ確率-1" class="anchor" href="#ベイズ確率-1" aria-hidden="true"></a>ベイズ確率</h3>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="p(D) = \int p(D|\mathbf{w}) p(\mathbf{w}) d\mathbf{w}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">D</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mo MJXc-space3" style="padding-right: 0.138em;"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.593em; padding-bottom: 0.593em;">∫</span></span><span class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">D</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">w</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">w</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.003em;">d</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">w</span></span></span></span></span></span></span></span></p>
@@ -625,7 +625,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-尤度関数" class="anchor" href="#尤度関数" aria-hidden="true"></a>尤度関数</h3>
 <ul>
@@ -644,7 +644,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-事前分布" class="anchor" href="#事前分布" aria-hidden="true"></a>事前分布</h3>
 <ul>
@@ -661,7 +661,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ベイズの計算コスト" class="anchor" href="#ベイズの計算コスト" aria-hidden="true"></a>ベイズの計算コスト</h3>
 <ul>
@@ -681,20 +681,20 @@
 </ul>
 
             </section>
-
+        
 
     </section>
+    
 
 
 
-
-
+    
     <section>
         <section>
             <h2><a id="user-content-124-ガウス分布" class="anchor" href="#124-ガウス分布" aria-hidden="true"></a>1.2.4 ガウス分布</h2>
 <img src="./images/prml/Figure1.13.png" style="max-width:40%;background:white;" alt="figure1.13">
             </section>
-
+        
             <section>
                 <h4><a id="user-content-ガウス分布" class="anchor" href="#ガウス分布" aria-hidden="true"></a>ガウス分布</h4>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="N(x | \mu, \sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}}\exp\{-\frac{1}{2\sigma^2} (x-\mu)^2\}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.144em; padding-bottom: 0.519em;">,</span></span><span class="mjx-msubsup MJXc-space1"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mfrac MJXc-space3"><span class="mjx-box MJXc-stacked" style="width: 3.128em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 4.424em; top: -1.372em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 4.424em; bottom: -1.21em;"><span class="mjx-mrow" style=""><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.003em;">π</span></span><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 83.3%; vertical-align: 0.347em; padding-left: 0.062em; padding-right: 0.06em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span><span class="mjx-sup" style="font-size: 83.3%; vertical-align: 0.408em; padding-left: 0px; padding-right: 0.06em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">/</span></span></span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 3.128em;" class="mjx-line"></span></span><span style="height: 1.826em; vertical-align: -0.856em;" class="mjx-vsize"></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.151em; padding-bottom: 0.519em;">exp</span></span><span class="mjx-mo"><span class="mjx-char"></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">{</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 1.259em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 1.781em; top: -1.372em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 1.781em; bottom: -0.85em;"><span class="mjx-mrow" style=""><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 83.3%; vertical-align: 0.347em; padding-left: 0.062em; padding-right: 0.06em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 1.259em;" class="mjx-line"></span></span><span style="height: 1.572em; vertical-align: -0.601em;" class="mjx-vsize"></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span><span class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">}</span></span></span></span></span></span></p>
@@ -709,7 +709,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h4><a id="user-content-ガウス分布-1" class="anchor" href="#ガウス分布-1" aria-hidden="true"></a>ガウス分布</h4>
 <ul>
@@ -720,7 +720,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-多変量正規分布" class="anchor" href="#多変量正規分布" aria-hidden="true"></a>多変量正規分布</h3>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="N(\mathbf{x}|\mathbb{\mu}, \mathbb{\sum}) = \frac{1}{(2\pi)^{D/2}} \frac{1}{(|\mathbb{\sum}|)^{1/2}} \exp\{-\frac{1}{2} (\mathbf{x}-\mathbf{\mu})^{\mathrm{T}} \mathbb{\sum}^{-1} (\mathbf{x}-\mathbf{\mu})\}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">x</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.144em; padding-bottom: 0.519em;">,</span></span><span class="mjx-texatom MJXc-space1"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.519em; padding-bottom: 0.519em;">∑</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mfrac MJXc-space3"><span class="mjx-box MJXc-stacked" style="width: 2.557em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 3.616em; top: -1.372em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 3.616em; bottom: -1.21em;"><span class="mjx-mrow" style=""><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.003em;">π</span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span><span class="mjx-sup" style="font-size: 83.3%; vertical-align: 0.408em; padding-left: 0px; padding-right: 0.06em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">D</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">/</span></span></span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 2.557em;" class="mjx-line"></span></span><span style="height: 1.826em; vertical-align: -0.856em;" class="mjx-vsize"></span></span><span class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 2.745em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 3.882em; top: -1.372em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 3.882em; bottom: -1.21em;"><span class="mjx-mrow" style=""><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.519em; padding-bottom: 0.519em;">∑</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span><span class="mjx-sup" style="font-size: 83.3%; vertical-align: 0.408em; padding-left: 0px; padding-right: 0.06em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">/</span></span></span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 2.745em;" class="mjx-line"></span></span><span style="height: 1.826em; vertical-align: -0.856em;" class="mjx-vsize"></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.151em; padding-bottom: 0.519em;">exp</span></span><span class="mjx-mo"><span class="mjx-char"></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">{</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 0.495em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 0.7em; top: -1.372em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 0.7em; bottom: -0.665em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 0.495em;" class="mjx-line"></span></span><span style="height: 1.441em; vertical-align: -0.47em;" class="mjx-vsize"></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">x</span></span></span></span><span class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-texatom MJXc-space2"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span></span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">T</span></span></span></span></span></span></span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.519em; padding-bottom: 0.519em;">∑</span></span></span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.71em; padding-left: 0px; padding-right: 0.071em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">x</span></span></span></span><span class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-texatom MJXc-space2"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">}</span></span></span></span></span></span></p>
@@ -732,7 +732,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ガウス分布のパラメータ推定" class="anchor" href="#ガウス分布のパラメータ推定" aria-hidden="true"></a>ガウス分布のパラメータ推定</h3>
 <ul>
@@ -746,7 +746,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ガウス分布に対する尤度関数" class="anchor" href="#ガウス分布に対する尤度関数" aria-hidden="true"></a>ガウス分布に対する尤度関数</h3>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="p(\mathbf{x}|\mu,\sigma^w) = \prod_{n=1}^N N(x_n|\mu, \sigma^2)"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">x</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.144em; padding-bottom: 0.519em;">,</span></span><span class="mjx-msubsup MJXc-space1"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">w</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-munderover MJXc-space3"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.519em; padding-bottom: 0.519em;">∏</span></span></span><span class="mjx-stack" style="vertical-align: -0.31em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.433em; padding-left: 0px; padding-right: 0.071em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">n</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span></span></span></span><span class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.212em; padding-right: 0.071em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">n</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.144em; padding-bottom: 0.519em;">,</span></span><span class="mjx-msubsup MJXc-space1"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span></span></span></span></p>
@@ -756,7 +756,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-ガウス分布に対する尤度関数の図示" class="anchor" href="#ガウス分布に対する尤度関数の図示" aria-hidden="true"></a>ガウス分布に対する尤度関数の図示</h3>
 <img src="./images/prml/Figure1.14.png" style="max-width:40%;background:white;" alt="figure1.14">
@@ -765,7 +765,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-尤度関数の最大化" class="anchor" href="#尤度関数の最大化" aria-hidden="true"></a>尤度関数の最大化</h3>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="\ln p(\mathbf{x}|\mu, \sigma^2) = - \frac{1}{2\sigma^2} \sum_{n=1}^{N} (x_n - \mu)^2 - \frac{N}{2} \ln\sigma^2 - \frac{N}{2}\ln(2\pi)"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">ln</span></span><span class="mjx-mo"><span class="mjx-char"></span></span><span class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.446em;">p</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.151em; padding-bottom: 0.372em;">x</span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">|</span></span></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.144em; padding-bottom: 0.519em;">,</span></span><span class="mjx-msubsup MJXc-space1"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 1.259em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 1.781em; top: -1.372em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 1.781em; bottom: -0.85em;"><span class="mjx-mrow" style=""><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 83.3%; vertical-align: 0.347em; padding-left: 0.062em; padding-right: 0.06em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 1.259em;" class="mjx-line"></span></span><span style="height: 1.572em; vertical-align: -0.601em;" class="mjx-vsize"></span></span><span class="mjx-munderover MJXc-space1"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.519em; padding-bottom: 0.519em;">∑</span></span></span><span class="mjx-stack" style="vertical-align: -0.31em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.433em; padding-left: 0px; padding-right: 0.071em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">n</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">x</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.212em; padding-right: 0.071em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">n</span></span></span></span><span class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.519em;">μ</span></span><span class="mjx-msubsup"><span class="mjx-base"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mfrac MJXc-space2"><span class="mjx-box MJXc-stacked" style="width: 0.769em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 1.088em; top: -1.389em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 1.088em; bottom: -0.665em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 0.769em;" class="mjx-line"></span></span><span style="height: 1.453em; vertical-align: -0.47em;" class="mjx-vsize"></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">ln</span></span><span class="mjx-mo"><span class="mjx-char"></span></span><span class="mjx-msubsup MJXc-space1"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span><span class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mfrac MJXc-space2"><span class="mjx-box MJXc-stacked" style="width: 0.769em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 1.088em; top: -1.389em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 1.088em; bottom: -0.665em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 0.769em;" class="mjx-line"></span></span><span style="height: 1.453em; vertical-align: -0.47em;" class="mjx-vsize"></span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">ln</span></span><span class="mjx-mo"><span class="mjx-char"></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.003em;">π</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span></span></span></span></span></p>
@@ -781,7 +781,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-尤度関数の最大化-1" class="anchor" href="#尤度関数の最大化-1" aria-hidden="true"></a>尤度関数の最大化</h3>
 <ul>
@@ -796,7 +796,7 @@
 </ul>
 
             </section>
-
+        
             <section>
                 <h3><a id="user-content-分散の過小評価の直感的説明" class="anchor" href="#分散の過小評価の直感的説明" aria-hidden="true"></a>分散の過小評価の直感的説明</h3>
 <ul>
@@ -806,7 +806,7 @@
 </ul>
 <img src="./images/prml/Figure1.15.png" style="max-width:40%;background:white;" alt="figure1.15">
             </section>
-
+        
             <section>
                 <div style="text-align:left;">
 <h4><a id="user-content-分散の過小評価の証明" class="anchor" href="#分散の過小評価の証明" aria-hidden="true"></a>分散の過小評価の証明</h4>
@@ -820,7 +820,7 @@
 <span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="= \frac{N-1}{N} \sigma^2"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mfrac MJXc-space3"><span class="mjx-box MJXc-stacked" style="width: 1.673em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 2.366em; top: -1.471em;"><span class="mjx-mrow" style=""><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 2.366em; bottom: -0.682em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 1.673em;" class="mjx-line"></span></span><span style="height: 1.523em; vertical-align: -0.482em;" class="mjx-vsize"></span></span><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span></span></span></p>
 </div>
             </section>
-
+        
             <section>
                 <h3><a id="user-content-分散パラメータの不偏推定量" class="anchor" href="#分散パラメータの不偏推定量" aria-hidden="true"></a>分散パラメータの不偏推定量</h3>
 <p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="E(\sigma^2_{ML}) = \frac{N-1}{N} \sigma^2"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.026em;">E</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">(</span></span><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-stack" style="vertical-align: -0.327em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span class="mjx-texatom" style=""><span class="mjx-mrow"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.081em;">M</span></span><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em;">L</span></span></span></span></span></span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.446em; padding-bottom: 0.593em;">)</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mfrac MJXc-space3"><span class="mjx-box MJXc-stacked" style="width: 1.673em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 2.366em; top: -1.471em;"><span class="mjx-mrow" style=""><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span><span class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.298em; padding-bottom: 0.446em;">−</span></span><span class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 2.366em; bottom: -0.682em;"><span class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.446em; padding-bottom: 0.298em; padding-right: 0.085em;">N</span></span></span><span style="border-bottom: 1.3px solid; top: -0.296em; width: 1.673em;" class="mjx-line"></span></span><span style="height: 1.523em; vertical-align: -0.482em;" class="mjx-vsize"></span></span><span class="mjx-msubsup"><span class="mjx-base" style="margin-right: -0.001em;"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em; padding-right: 0.001em;">σ</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0.073em; padding-right: 0.071em;"><span class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">2</span></span></span></span></span></span></span></span> より
@@ -828,21 +828,22 @@
 <p>10.1.3節で、この結果をベイズアプローチによって示す。</p>
 
             </section>
-
+        
 
     </section>
+    
 
 
 
-
-
+    
         <section>
-
+            
             <h1><a id="user-content-お詫び" class="anchor" href="#お詫び" aria-hidden="true"></a>お詫び</h1>
-<p>GSuiteとPowerPointの推奨を見逃しており、慣れてて楽だったのでこれで書きましたが、PDFにするときにバグがあったので、次回移行GSuiteに移行します。</p>
+<p><s>GSuite, PowerPoint, PDFの推奨を見逃しており、慣れてて楽だったのでこれで書きましたが、数式のレンダリングが重すぎたり、PDFにするときにバグがあったので、次回移行GSuiteに移行します。</s></p>
+<p>スライド版の数式を事前にレンダリングする処理が実装できたのと、PDF化はMarkdownの時点で済ませればOKなので、しばらくはこちらで運用します。</p>
 
             </section>
-
+    
 
 
     </div>
@@ -908,27 +909,27 @@
             { src: '/slides/libs/reveal.js/3.8.0/plugin/math/math.js', async: true },
             { src: 'libs/highlight.js/9.12.0/highlight.js', async: true },
             { src: '/slides/libs/reveal.js/3.8.0/plugin/anything/anything.js' },
-            { src: '/slides/libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },
+            { src: '/slides/libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },	
 
-
+           
         { src: '/slides/libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+           
 
-
-
+           
         { src: '/slides/libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
+            
 
-
-
+            
         { src: '/slides/libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
+            
 
-
-
+            
         { src: '/slides/libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
 
-
-
+            
         { src: '/slides/libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
-
+            
 
         {
             src: 'libs/highlight.js/9.12.0/reveal-code-focus-1.0.0-mod.js',
@@ -977,14 +978,14 @@
         pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
         radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
     },
-    anything: [
+    anything: [ 
 	 {
 	  className: "mermaid"
 	 },
 	 // ...
 	],
     menu: {
-        // Specifies which side of the presentation the menu will
+        // Specifies which side of the presentation the menu will 
         // be shown. Use 'left' or 'right'.
         side: 'left',
 
@@ -1015,7 +1016,7 @@
                             // Set to 'true' to only list slides with titles.
                             hideMissingTitles: false,
 
-                                // Adds markers to the slide titles to indicate the
+                                // Adds markers to the slide titles to indicate the 
                                 // progress through the presentation. Set to 'false'
                                 // to hide the markers.
                                 markers: true,
@@ -1040,8 +1041,8 @@
                                             // Specifies the path to the default theme files. If your
                                             // presentation uses a different path to the standard reveal
                                             // layout then you need to provide this option, but only
-                                            // when 'themes' is set to 'true'. If you provide your own
-                                            // list of themes or 'themes' is set to 'false' the
+                                            // when 'themes' is set to 'true'. If you provide your own 
+                                            // list of themes or 'themes' is set to 'false' the 
                                             // 'themesPath' option is ignored.
                                             themesPath: 'css/theme/',
 
@@ -1058,7 +1059,7 @@
                                                     openButton: true,
 
                                                         // If 'true' allows the slide number in the presentation to
-                                                        // open the menu panel. The reveal.js slideNumber option must
+                                                        // open the menu panel. The reveal.js slideNumber option must 
                                                         // be displayed for this to take effect
                                                         openSlideNumber: false,
 
@@ -1071,12 +1072,12 @@
                                                                 // selecting a menu item, or clicking the presentation area.
                                                                 // If 'true', the sticky option will leave the menu open
                                                                 // until it is explicitly closed, that is, using the close
-                                                                // button or pressing the ESC or m key (when the keyboard
+                                                                // button or pressing the ESC or m key (when the keyboard 
                                                                 // interaction option is enabled).
                                                                 sticky: false,
 
                                                                     // If 'true' standard menu items will be automatically opened
-                                                                    // when navigating using the keyboard. Note: this only takes
+                                                                    // when navigating using the keyboard. Note: this only takes 
                                                                     // effect when both the 'keyboard' and 'sticky' options are enabled.
                                                                     autoOpen: true,
 
