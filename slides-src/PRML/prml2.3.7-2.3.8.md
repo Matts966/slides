@@ -2,7 +2,7 @@
 theme : "night"
 transition: "convex"
 highlightTheme: "darkula"
-title: "PRML 1.2.2 ~ 1.2.4"
+title: "PRML 2.3.7 ~ 2.3.8"
 ---
 
 # PRML勉強会
