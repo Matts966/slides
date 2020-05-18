@@ -66,7 +66,7 @@ $St(x | \mu, \lambda, v) = \frac{\Gamma(v/2+1/2)}{\Gamma(v/2)} (\frac{\lambda}{\
 
 ### t分布の頑健性
 
-$\color{red}{赤}$がt分布、$\color{green}{緑}$が正規分布（1枚目は重なっている）
+<span style="color:red">赤</span>がt分布、<span style="color:green">緑</span>が正規分布（1枚目は重なっている）
 
 
 <div style='display:inline;'>
@@ -87,7 +87,7 @@ $\color{red}{赤}$がt分布、$\color{green}{緑}$が正規分布（1枚目は�
     - ラベル付けのミスのような異常値や、サンプルサイズが小さく外れ値があり、分散が定められない場合
     - 実際にすそが長い分布の場合に有効
 - t検定
-    - 母集団が正規分布に従うという仮定の下で、帰無仮説が成立するとき、t分布に従うことを用いるなど
+    - 母集団が正規分布に従うという仮定の下で、検定値がt分布に従うことを利用して有意差の判定などを行う
 
 --
 
@@ -96,6 +96,7 @@ $\color{red}{赤}$がt分布、$\color{green}{緑}$が正規分布（1枚目は�
 - 回帰問題にも有効
     - 最小二乗法は誤差が正規分布を取るなどの仮定の下での最尤推定に相当し、頑健でない
     - t分布のような、すその重い分布を使えば、外れ値に強くできる
+      - スチューデント化残差
 
 --
 
@@ -201,7 +202,7 @@ $p(x_1, x_2) = \frac{1}{2\pi\sigma^2} \exp\{-\frac{(x_1-\mu_1)^2 + (x_2-\mu_2)^2
 <img src="./images/prml/Figure2.18.png" style="max-width:40%;background:white;" alt="Figure2.18">
 
 
-$\color{red}{単位円}$で条件付けを行う($r=1$)
+<span style="color:red">単位円</span>で条件付けを行う($r=1$)
 
 --
 

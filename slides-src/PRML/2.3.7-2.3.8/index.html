@@ -473,7 +473,7 @@
         
             <section>
                 <h3><a id="user-content-t分布の頑健性" class="anchor" href="#t分布の頑健性" aria-hidden="true"></a>t分布の頑健性</h3>
-<p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="\color{red}{赤}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mstyle" style="color: red;"><span class="mjx-mrow"><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char" style="padding-top: 0.519em; padding-bottom: 0.225em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.3em; width: 0.5em;">赤</span></span></span></span></span></span></span></span></span></span></span>がt分布、<span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="\color{green}{緑}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mstyle" style="color: green;"><span class="mjx-mrow"><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char" style="padding-top: 0.519em; padding-bottom: 0.225em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.3em; width: 0.5em;">緑</span></span></span></span></span></span></span></span></span></span></span>が正規分布（1枚目は重なっている）</p>
+<p><span style="color:red">赤</span>がt分布、<span style="color:green">緑</span>が正規分布（1枚目は重なっている）</p>
 <div style="display:inline;">
 <img src="./images/prml/Figure2.16a.png" style="max-width:30%;background:white;" alt="figure2.16a">
 </div>
@@ -498,7 +498,7 @@
 </li>
 <li>t検定
 <ul>
-<li>母集団が正規分布に従うという仮定の下で、帰無仮説が成立するとき、t分布に従うことを用いるなど</li>
+<li>母集団が正規分布に従うという仮定の下で、検定値がt分布に従うことを利用して有意差の判定などを行う</li>
 </ul>
 </li>
 </ul>
@@ -511,7 +511,11 @@
 <li>回帰問題にも有効
 <ul>
 <li>最小二乗法は誤差が正規分布を取るなどの仮定の下での最尤推定に相当し、頑健でない</li>
-<li>t分布のような、すその重い分布を使えば、外れ値に強くできる</li>
+<li>t分布のような、すその重い分布を使えば、外れ値に強くできる
+<ul>
+<li>スチューデント化残差</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -647,7 +651,7 @@
             <section>
                 <h3><a id="user-content-フォンミーゼス（循環正規）分布-2" class="anchor" href="#フォンミーゼス（循環正規）分布-2" aria-hidden="true"></a>フォンミーゼス（循環正規）分布</h3>
 <img src="./images/prml/Figure2.18.png" style="max-width:40%;background:white;" alt="Figure2.18">
-<p><span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="\color{red}{単位円}"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mstyle" style="color: red;"><span class="mjx-mrow"><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char" style="padding-top: 0.519em; padding-bottom: 0.225em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.3em; width: 0.5em;">単</span></span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char" style="padding-top: 0.519em; padding-bottom: 0.225em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.3em; width: 0.5em;">位</span></span></span></span></span><span class="mjx-texatom"><span class="mjx-mrow"><span class="mjx-mo"><span class="mjx-char" style="padding-top: 0.519em; padding-bottom: 0.225em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.3em; width: 0.5em;">円</span></span></span></span></span></span></span></span></span></span></span>で条件付けを行う(<span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="r=1"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">r</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span></span></span>)</p>
+<p><span style="color:red">単位円</span>で条件付けを行う(<span class="mjpage"><span class="mjx-chtml"><span class="mjx-math" aria-label="r=1"><span class="mjx-mrow" aria-hidden="true"><span class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.225em; padding-bottom: 0.298em;">r</span></span><span class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.077em; padding-bottom: 0.298em;">=</span></span><span class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.372em; padding-bottom: 0.372em;">1</span></span></span></span></span></span>)</p>
 
             </section>
         
