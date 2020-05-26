@@ -1,7 +1,4 @@
 ---
-theme : "solarized"
-transition: "convex"
-highlightTheme: "darkula"
 title: "PRML 3.5.1 ~ 3.6"
 ---
 
