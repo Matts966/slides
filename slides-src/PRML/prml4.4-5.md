@@ -78,7 +78,7 @@ $$
 
 ### シグモイド関数の近似例
 
-<span style="color:orange">オレンジは $p(z) \propto \exp (-z^2/2) \sigma(20z+4)$</span> で、<span style="color:red">赤が近似したガウス分布</span>。右のプロットは負の対数。
+<span style="color:orange">オレンジは</span> $\color{orange}{p(z) \propto \exp (-z^2/2) \sigma(20z+4)}$ で、<span style="color:red">赤が近似したガウス分布</span>。右のプロットは負の対数。
 
 <div style='display:inline;'>
 <img src="./images/prml/Figure4.14a.png" style="max-width:40%;background:white;" alt="figure4.14a">
