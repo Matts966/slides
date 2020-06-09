@@ -269,17 +269,17 @@ $g = \\{ \mathbf{\tau}'^T \nabla y(\mathbf{x}) + \mathbf{\tau}^T \nabla\nabla y(
 
 ### 誤差関数の整理
 
-1.5.5節で、二乗和誤差を最小化する関数は、目標値 $t$ の条件付き期待値 $\mathbb{E} [t|\mathbf{x}]$ となるとわかった。先ほどの $f \times g$ は $O(\xi^2)$ なので、全体の誤差を最小化するネットワーク関数は
+1.5.5節で、二乗和誤差を最小化する関数は、目標値 $t$ の条件付き期待値 $\mathbb{E} [t|\mathbf{x}]$ となるとわかった。先ほどの右辺第2項は $O(\xi^2)$ なので、全体の誤差を最小化するネットワーク関数は
 
 $$y (\mathbf{x}) = \mathbb{E}[t|\mathbf{x}] + O(\xi^2) \tag{5.133}$$
 
-よってこのとき $y (\mathbf{x}) - \mathbb{E}[t|\mathbf{x}] = O(\xi^2)$ となり、先ほどの $f$ がかかった項を無視できて、
+よってこのとき $y (\mathbf{x}) - \mathbb{E}[t|\mathbf{x}] = f = O(\xi^2)$ となり、先ほどの $f$ がかかった項は $O(\xi^4)$ として無視できて、
 
 $\tilde{E} = E + \mathbb{E} [\xi ^ 2] \frac{1}{2} \int (\mathbf{\tau}^T \nabla y(\mathbf{x}))^2 p(\mathbf{x}) d\mathbf{x}$
 
 --
 
-### 接線伝播法と **data augmentation**
+### 接線伝播法との等価性
 
 $\mathbb{E}[\xi^2]$ を $\lambda$ とすると、
 
