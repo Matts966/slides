@@ -194,6 +194,8 @@ $$
 
 --
 
+### **data augmentation**
+
 以下の二つのアプローチには、密接な関係がある
 
 1. **data augmentation**: 学習データ集合を変換してかさ増しする(5.5.5)
@@ -203,6 +205,8 @@ $$
 
 --
 
+### 誤差関数
+
 まず、 **data augmentation** を行う際、データ集合が無限となる極限で二乗和誤差関数は
 
 $E = \frac{1}{2} \int \int \\{ y(\mathbf{x}) -t \\} ^2 p(t | \mathbf{x}) p(\mathbf{x}) d\mathbf{x}dt$
@@ -211,13 +215,19 @@ $E = \frac{1}{2} \int \int \\{ y(\mathbf{x}) -t \\} ^2 p(t | \mathbf{x}) p(\math
 
 --
 
-変換のパラメータも $\xi$ 1つで考えると、
+### **data augmentation**
+
+- 変換のパラメータも $\xi$ 1つ
+- それぞれのデータ点が $p(\xi)$ で選ばれるパラメータ $\xi$ によって無限にコピーされており、
+- $\mathbf{s}$ を $\mathbf{s} (\mathbf{x}, 0) = \mathbf{x}$ となるような変換関数と考えると、誤差関数は
 
 $\tilde{E} = \frac{1}{2} \int \int \int \\{ y( \mathbf{s}( \mathbf{x}, \xi ) ) -t \\} ^2 p(t | \mathbf{x}) p(\mathbf{x}) p(\xi) d\mathbf{x} dt d\xi$
 
 $$\tag{5.130}$$
 
 --
+
+#### テイラー展開による式変形
 
 <div style="text-align:left;">
 
@@ -239,7 +249,9 @@ $= \mathbf{x} + \xi\mathbf{\tau} + \frac{1}{2} \xi^2 \mathbf{\tau}' + O(\xi^3)$
 
 --
 
-この結果を用いて $p(\xi)$ は平均0の小さなパラメータと考えて、 $O(\xi ^3), \mathbb{E}[\xi]$ を0として 5.130 を整理すると
+### 誤差関数の整理
+
+この結果を用いて $p(\xi)$ は平均0の小さなパラメータと考えて、 $O(\xi ^3), \mathbb{E}[\xi]$ を0として 5.130 の誤差関数を整理すると
 
 <div style="text-align:left;">
 
@@ -255,15 +267,19 @@ $g = \\{ \mathbf{\tau}'^T \nabla y(\mathbf{x}) + \mathbf{\tau}^T \nabla\nabla y(
 
 --
 
-1.5.5節で、二乗和誤差を最小化する関数は、目標値 $t$ の条件付き期待値 $\mathbb{E} [t|\mathbf{x}]$ となるとわかった。上式の右辺第2項は $O(\xi^2)$ なので、全体の誤差を最小化するネットワーク関数は
+### 誤差関数の整理
+
+1.5.5節で、二乗和誤差を最小化する関数は、目標値 $t$ の条件付き期待値 $\mathbb{E} [t|\mathbf{x}]$ となるとわかった。先ほどの $f \times g$ は $O(\xi^2)$ なので、全体の誤差を最小化するネットワーク関数は
 
 $$y (\mathbf{x}) = \mathbb{E}[t|\mathbf{x}] + O(\xi^2) \tag{5.133}$$
 
-よってこのとき $y (\mathbf{x}) - \mathbb{E}[t|\mathbf{x}] = O(\xi^2)$ となり、先ほどの右辺第2項を無視できて、
+よってこのとき $y (\mathbf{x}) - \mathbb{E}[t|\mathbf{x}] = O(\xi^2)$ となり、先ほどの $f$ がかかった項を無視できて、
 
 $\tilde{E} = E + \mathbb{E} [\xi ^ 2] \frac{1}{2} \int (\mathbf{\tau}^T \nabla y(\mathbf{x}))^2 p(\mathbf{x}) d\mathbf{x}$
 
 --
+
+### 接線伝播法と **data augmentation**
 
 $\mathbb{E}[\xi^2]$ を $\lambda$ とすると、
 
@@ -280,9 +296,11 @@ $$
 
 --
 
+### ティホノフ正則化
+
 $\mathbf{x} \rightarrow \mathbf{x} + \mathbf{\xi}$ のときを考えると、
 
-- $\Omega = \frac{1}{2} \int \|\nabla y (\mathbf{x})\| ^2 p(\mathbf{x}) d\mathbf{x}$
-- ティホノフ正則化
+- $\Omega = \frac{1}{2} \int \\|\nabla y (\mathbf{x})\\| ^2 p(\mathbf{x}) d\mathbf{x}$
+- これをティホノフ正則化という
 - 乱数ノイズを入力に付加している
 - 適当な環境では汎化性能を向上させる（Sietsma and Dow, 1991）

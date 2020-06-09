@@ -523,7 +523,8 @@ $$
             </section>
         
             <section >
-                <p>以下の二つのアプローチには、密接な関係がある</p>
+                <h3><a id="user-content-data-augmentation" class="anchor" href="#data-augmentation" aria-hidden="true"></a><strong>data augmentation</strong></h3>
+<p>以下の二つのアプローチには、密接な関係がある</p>
 <ol>
 <li><strong>data augmentation</strong>: 学習データ集合を変換してかさ増しする(5.5.5)</li>
 <li>接線伝播法(5.5.4)</li>
@@ -533,7 +534,8 @@ $$
             </section>
         
             <section >
-                <p>まず、 <strong>data augmentation</strong> を行う際、データ集合が無限となる極限で二乗和誤差関数は</p>
+                <h3><a id="user-content-誤差関数" class="anchor" href="#誤差関数" aria-hidden="true"></a>誤差関数</h3>
+<p>まず、 <strong>data augmentation</strong> を行う際、データ集合が無限となる極限で二乗和誤差関数は</p>
 <p>$E = \frac{1}{2} \int \int \{ y(\mathbf{x}) -t \} ^2 p(t | \mathbf{x}) p(\mathbf{x}) d\mathbf{x}dt$</p>
 <ul>
 <li>出力は1つと考える</li>
@@ -542,14 +544,20 @@ $$
             </section>
         
             <section >
-                <p>変換のパラメータも $\xi$ 1つで考えると、</p>
+                <h3><a id="user-content-data-augmentation-1" class="anchor" href="#data-augmentation-1" aria-hidden="true"></a><strong>data augmentation</strong></h3>
+<ul>
+<li>変換のパラメータも $\xi$ 1つ</li>
+<li>それぞれのデータ点が $p(\xi)$ で選ばれるパラメータ $\xi$ によって無限にコピーされており、</li>
+<li>$\mathbf{s}$ を $\mathbf{s} (\mathbf{x}, 0) = \mathbf{x}$ となるような変換関数と考えると、誤差関数は</li>
+</ul>
 <p>$\tilde{E} = \frac{1}{2} \int \int \int \{ y( \mathbf{s}( \mathbf{x}, \xi ) ) -t \} ^2 p(t | \mathbf{x}) p(\mathbf{x}) p(\xi) d\mathbf{x} dt d\xi$</p>
 <p>$$\tag{5.130}$$</p>
 
             </section>
         
             <section >
-                <div style="text-align:left;">
+                <h4><a id="user-content-テイラー展開による式変形" class="anchor" href="#テイラー展開による式変形" aria-hidden="true"></a>テイラー展開による式変形</h4>
+<div style="text-align:left;">
 <p>$\xi$ の冪乗にテイラー展開すると、</p>
 <p>$\mathbf{s}( \mathbf{x}, \xi ) = \mathbf{s}( \mathbf{x}, 0)$</p>
 <p>$+ \left . \xi \frac{\partial}{\partial\xi} \mathbf{s}( \mathbf{x}, \xi ) \right|_{ \xi=0}$</p>
@@ -563,7 +571,8 @@ $$
             </section>
         
             <section >
-                <p>この結果を用いて $p(\xi)$ は平均0の小さなパラメータと考えて、 $O(\xi ^3), \mathbb{E}[\xi]$ を0として 5.130 を整理すると</p>
+                <h3><a id="user-content-誤差関数の整理" class="anchor" href="#誤差関数の整理" aria-hidden="true"></a>誤差関数の整理</h3>
+<p>この結果を用いて $p(\xi)$ は平均0の小さなパラメータと考えて、 $O(\xi ^3), \mathbb{E}[\xi]$ を0として 5.130 の誤差関数を整理すると</p>
 <div style="text-align:left;">
 <p>$\tilde{E} = E + \mathbb{E} [\xi ^ 2] \frac{1}{2} \int \{ f \times g + (\mathbf{\tau}^T \nabla y(\mathbf{x}))^2 \} p(\mathbf{x}) d\mathbf{x}$</p>
 <p>ただし、</p>
@@ -573,15 +582,17 @@ $$
             </section>
         
             <section >
-                <p>1.5.5節で、二乗和誤差を最小化する関数は、目標値 $t$ の条件付き期待値 $\mathbb{E} [t|\mathbf{x}]$ となるとわかった。上式の右辺第2項は $O(\xi^2)$ なので、全体の誤差を最小化するネットワーク関数は</p>
+                <h3><a id="user-content-誤差関数の整理-1" class="anchor" href="#誤差関数の整理-1" aria-hidden="true"></a>誤差関数の整理</h3>
+<p>1.5.5節で、二乗和誤差を最小化する関数は、目標値 $t$ の条件付き期待値 $\mathbb{E} [t|\mathbf{x}]$ となるとわかった。先ほどの $f \times g$ は $O(\xi^2)$ なので、全体の誤差を最小化するネットワーク関数は</p>
 <p>$$y (\mathbf{x}) = \mathbb{E}[t|\mathbf{x}] + O(\xi^2) \tag{5.133}$$</p>
-<p>よってこのとき $y (\mathbf{x}) - \mathbb{E}[t|\mathbf{x}] = O(\xi^2)$ となり、先ほどの右辺第2項を無視できて、</p>
+<p>よってこのとき $y (\mathbf{x}) - \mathbb{E}[t|\mathbf{x}] = O(\xi^2)$ となり、先ほどの $f$ がかかった項を無視できて、</p>
 <p>$\tilde{E} = E + \mathbb{E} [\xi ^ 2] \frac{1}{2} \int (\mathbf{\tau}^T \nabla y(\mathbf{x}))^2 p(\mathbf{x}) d\mathbf{x}$</p>
 
             </section>
         
             <section >
-                <p>$\mathbb{E}[\xi^2]$ を $\lambda$ とすると、</p>
+                <h3><a id="user-content-接線伝播法と-data-augmentation" class="anchor" href="#接線伝播法と-data-augmentation" aria-hidden="true"></a>接線伝播法と <strong>data augmentation</strong></h3>
+<p>$\mathbb{E}[\xi^2]$ を $\lambda$ とすると、</p>
 <p>$$
 \tilde{E} = E + \lambda \Omega \tag{5.131}
 $$</p>
@@ -596,10 +607,11 @@ $$</p>
             </section>
         
             <section >
-                <p>$\mathbf{x} \rightarrow \mathbf{x} + \mathbf{\xi}$ のときを考えると、</p>
+                <h3><a id="user-content-ティホノフ正則化" class="anchor" href="#ティホノフ正則化" aria-hidden="true"></a>ティホノフ正則化</h3>
+<p>$\mathbf{x} \rightarrow \mathbf{x} + \mathbf{\xi}$ のときを考えると、</p>
 <ul>
-<li>$\Omega = \frac{1}{2} \int |\nabla y (\mathbf{x})| ^2 p(\mathbf{x}) d\mathbf{x}$</li>
-<li>ティホノフ正則化</li>
+<li>$\Omega = \frac{1}{2} \int \|\nabla y (\mathbf{x})\| ^2 p(\mathbf{x}) d\mathbf{x}$</li>
+<li>これをティホノフ正則化という</li>
 <li>乱数ノイズを入力に付加している</li>
 <li>適当な環境では汎化性能を向上させる（Sietsma and Dow, 1991）</li>
 </ul>
