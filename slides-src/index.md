@@ -2,7 +2,7 @@
 theme : "night"
 transition: "convex"
 highlightTheme: "darkula"
-title: "Featherweight Go"
+title: "Table of Contents"
 ---
 
 # Slides
