@@ -133,9 +133,13 @@ type empty struct {}
 
 --
 
-### 単一化不可能なコード
+### 単一化不可能なコードの例
 
 ![mono_impossible.png](./images/mono_impossible.png)
+
+- polymorphic recursionと呼ばれる
+- 実行時までどれだけ型がネストするか不明
+- 論文では、 problematic polymorphic recursion が存在しなければ、単一化可能なことも証明している。
 
 ---
 
@@ -145,7 +149,7 @@ type empty struct {}
 
 --
 
-### 関数型の場合
+### 関数型の場合（Haskell）
 
 データを追加すると、データを使っている全ての関数に対して変更が散らばる
 
@@ -165,7 +169,7 @@ eval (Add e1 e2) = eval e1 + eval e2
 
 --
 
-### OOPの場合
+### OOPの場合（C++）
 
 ```C++
 class Expr {
@@ -202,19 +206,30 @@ private:
 };
 ```
 
-- 今度はメソッドの追加のたびに、全ての実装に変更が必要になる
-- visitorパターンを拡張して解決するらしい
-  - https://cs.brown.edu/~sk/Publications/Papers/Published/kff-synth-fp-oo/
+今度はメソッド追加のたびに、全ての実装に変更が必要
+
+--
+
+### OOPの場合（C++）
+
+- [この場合visitorパターンを拡張して解決するらしい](https://cs.brown.edu/~sk/Publications/Papers/Published/kff-synth-fp-oo/)
+- templateでもOK?
 
 --
 
 ### Go
 
-<img src="./images/expression_problem.png" style="max-width:50%;background:white;" alt="Expression Problem">
+![Expression Problem](./images/expression_problem.png)
 
-- `type Minus` を追加したい場合は、別モジュールに `Evaler` と `Stringer` を追加すれば良い（既存のコードに変更は不要）
-- メソッド `String` を追加するのも、後から `interface` と実装を書いて埋め込むだけで済んでいる
-- 後方互換性あり
+--
+
+### Go
+
+- `type Minus` を追加したい場合は、別モジュールに `Evaler` と `Stringer` を追加すれば良い
+- メソッド `String` を追加するのも、後から `interface` と実装を書いて埋め込むだけで済んでいる。
+  - duck typing に則って、 `Evaler` かつ `Stringer` であれば、自動的に `Expr` となる。
+- 操作の追加も構造の追加も、凝集度が高い
+- 後方互換性あり（なので今後実装される模様）
 
 ---
 
@@ -251,7 +266,7 @@ private:
 
 ### Future Works
 
-- 実行時型情報を .NET generics のように使う手法との組み合わせ
+- .NET generics のように実行時型情報を使う手法との組み合わせ
 - Bantamweight Go
   - assignments, arrays, slices, packages なども含めたモデル化
 - Cruiserweight Go

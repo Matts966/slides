@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
 
-  <title>title</title>
+  <title>Featherweight Go</title>
 
   <meta name="description" content="">
   <meta name="author" content="">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/slides/libs/reveal.js/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/css/reveal.css">
   
-  <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/css/theme/night.css" id="theme">
   
   
   <link rel="stylesheet" href="/slides/libs/reveal.js/3.8.0/plugin/title-footer/title-footer-mod.css">
@@ -93,7 +93,7 @@
 
   <!-- Theme used for syntax highlighting of code -->
   
-  <link rel="stylesheet" href="libs/highlight.js/9.12.0/Zenburn.css">
+  <link rel="stylesheet" href="libs/highlight.js/9.12.0/darkula.css">
   
 
   
@@ -272,16 +272,383 @@
     
         <section>
             
-            <h1><a id="user-content-slides" class="anchor" href="#slides" aria-hidden="true"></a>Slides</h1>
-<p><a href="./slides-src/intro-export/">intro</a></p>
-<p><a href="./slides-src/gosp-export/">gosp</a></p>
-<p><a href="./slides-src/phics-export/">phics</a></p>
-<p><a href="./slides-src/iot-export/">IoT</a></p>
-<p><a href="./slides-src/aktsk-export/">aktsk</a></p>
-<p><a href="./slides-src/PRML/index/">PRML</a></p>
-<p><a href="./slides-src/featherweighgo-export/">Featherweight Go</a></p>
+            <h2><a id="user-content-featherweight-go" class="anchor" href="#featherweight-go" aria-hidden="true"></a>Featherweight Go</h2>
+<p>Robert Griesemer, Raymond Hu, Wen Kokke, Julien Lange, Ian Lance Taylor, Bernardo Toninho, Philip Wadler, Nobuko Yoshida</p>
 
             </section>
+    
+
+
+
+    
+        <section>
+            
+            <h2><a id="user-content-目次" class="anchor" href="#目次" aria-hidden="true"></a>目次</h2>
+<ol>
+<li><a href="#/2">概要</a></li>
+<li><a href="#/3">背景</a></li>
+<li><a href="#/4">Monomorphisation</a></li>
+<li><a href="#/5">Expression Problem</a></li>
+<li><a href="#/6">まとめ</a></li>
+</ol>
+
+            </section>
+    
+
+
+
+    
+        <section>
+            
+            <h2><a id="user-content-1-概要" class="anchor" href="#1-概要" aria-hidden="true"></a>1. 概要</h2>
+<ul>
+<li>どうGoにジェネリクスを導入するか
+<ul>
+<li>新しく contract を導入するのではなく</li>
+<li>既存の interface を拡張することで実現することを提案</li>
+</ul>
+</li>
+<li>Monomorphisation を初めて定式化
+<ul>
+<li>関数型的な側面に焦点を当てた軽量なモデル言語 Featherweight Go に対して、健全性や停止性などを証明</li>
+</ul>
+</li>
+<li>後方互換性を保ちながらExpression Problemも解決</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+    <section>
+        <section>
+            <h2><a id="user-content-2-背景" class="anchor" href="#2-背景" aria-hidden="true"></a>2. 背景</h2>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-from-rob-pike-to-one-of-the-authors" class="anchor" href="#from-rob-pike-to-one-of-the-authors" aria-hidden="true"></a>From Rob Pike to one of the authors</h3>
+<p><em>Would you be interested in helping us get polymorphism right (and/or figuring out what “right” means) for some future version of Go?</em></p>
+<p><em>This paper is our response to that question.</em></p>
+<p>↑ かっこいい</p>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-人名（余談）" class="anchor" href="#人名（余談）" aria-hidden="true"></a>人名（余談）</h3>
+<ul>
+<li>Rob Pike
+<ul>
+<li>Unix, UTF-8, Go などの作者として有名</li>
+</ul>
+</li>
+<li>Philip Wadler （著者の一人）
+<ul>
+<li>Haskell の設計などで有名</li>
+<li>Expression Problem を指摘した人</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-contract" class="anchor" href="#contract" aria-hidden="true"></a>Contract</h3>
+<pre><code class="language-Go">package compare
+// The equal contract describes types that have an Equal method with
+// an argument of the same type as the receiver type.
+contract equal(T) {
+	T Equal(T) bool
+}
+// Index returns the index of e in s, or -1.
+func Index(type T equal)(s []T, e T) int {
+	for i, v := range s {
+		// Both e and v are type T, so it's OK to call e.Equal(v).
+		if e.Equal(v) {
+			return i
+		}
+	}
+	return -1
+}
+</code></pre>
+<p><a href="http://go.googlesource.com/proposal/+/master/design/go2draft-contracts.md">go.googlesource.com/proposal/+/master/design/go2draft-contracts.md</a></p>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-contract-1" class="anchor" href="#contract-1" aria-hidden="true"></a>Contract</h3>
+<ul>
+<li>以前から提案されていたジェネリクスのための構文</li>
+<li>著者ら曰く、便利な構文だが、意味論が不明瞭らしい
+<ul>
+<li>正確な批判は読んだ限り書いていなかった</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-duck-typing" class="anchor" href="#duck-typing" aria-hidden="true"></a>Duck Typing</h3>
+<pre><code class="language-Go">type Any interface {}
+
+type Eq interface {
+  Equal(that Eq) bool
+}
+
+type empty struct {}
+</code></pre>
+<ul>
+<li>Go では、 <code>interface</code> という構文で定義された関数の組を実装すると、その型として使うことができる</li>
+<li>↑でいうと、 <code>empty</code> は <code>Any</code> ではあるが、 <code>Eq</code> ではない</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-complete-vs-featherweight" class="anchor" href="#complete-vs-featherweight" aria-hidden="true"></a>Complete vs Featherweight</h3>
+<ul>
+<li>レビュワー
+<ul>
+<li>できるだけ多くの機能をモデル化(Complete)した方が、機能の直交性なども分析できて良いのでは？</li>
+</ul>
+</li>
+<li>著者ら
+<ul>
+<li>Featherweight Java の引用数が、その他の Complete なモデル化を行った研究よりも多いことを根拠として、 Featherweight Go の価値を主張</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section>
+            <h2><a id="user-content-3-monomorphisation" class="anchor" href="#3-monomorphisation" aria-hidden="true"></a>3. Monomorphisation</h2>
+<ul>
+<li>ジェネリックな型を具体的な型に当てはめていく処理（単一化）</li>
+<li>FGG(Featherweight Generic Go) → FG(Featherweight Go) と変換する</li>
+<li>例ですら長いので省略…</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-証明された性質" class="anchor" href="#証明された性質" aria-hidden="true"></a>証明された性質</h3>
+<p>いろいろあるが…</p>
+<ul>
+<li>健全性</li>
+<li>停止性
+<ul>
+<li>単一化不可能であれば、そう返して終了することができることを証明</li>
+</ul>
+</li>
+<li>C++, ML, .NET, Rust などで使われるポピュラーなものだが、今回初めて定式化された。</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-単一化不可能なコードの例" class="anchor" href="#単一化不可能なコードの例" aria-hidden="true"></a>単一化不可能なコードの例</h3>
+<p><img src="./images/mono_impossible.png" alt="mono_impossible.png"></p>
+<ul>
+<li>polymorphic recursionと呼ばれる</li>
+<li>実行時までどれだけ型がネストするか不明</li>
+<li>論文では、 problematic polymorphic recursion が存在しなければ、単一化可能なことも証明している。</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section>
+            <h2><a id="user-content-4-expression-problem" class="anchor" href="#4-expression-problem" aria-hidden="true"></a>4. Expression Problem</h2>
+<p>型安全性を保ちながら、再コンパイルせずに、ジェネリックな型に対して、新しいメソッドや具体的な型を追加するにはどうすれば良いか？</p>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-関数型の場合（haskell）" class="anchor" href="#関数型の場合（haskell）" aria-hidden="true"></a>関数型の場合（Haskell）</h3>
+<p>データを追加すると、データを使っている全ての関数に対して変更が散らばる</p>
+<pre><code class="language-haskell">data Expr = Const Int | Add Expr Expr
+
+toString (Const i) = show i
+toString (Add e1 e2) = toString e1 ++ " + " ++ toString e2
+
+eval (Const i) = i
+eval (Add e1 e2) = eval e1 + eval e2
+</code></pre>
+<ul>
+<li>関数は追加するだけで良いが、、、</li>
+<li>dataの種類（引き算など）を追加すると、全てに変更が必要になる</li>
+<li>Haskell は型クラスで解決</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-oopの場合（c）" class="anchor" href="#oopの場合（c）" aria-hidden="true"></a>OOPの場合（C++）</h3>
+<pre><code class="language-C++">class Expr {
+public:
+  virtual string to_string() const = 0;
+  virtual int eval() const = 0;
+};
+
+class Const : public Expr {
+public:
+  Const(int value) : value_(value) {}
+  string to_string() const {
+    std::ostringstream ss; ss &lt;&lt; value_;
+    return ss.str();
+  }
+  int eval() const {
+    return value_;
+  }
+private:
+  int value_;
+};
+
+class Add : public Expr {
+public:
+  Add(const Expr&amp; e1, const Expr&amp; e2) : e1_(lhs), e2_(rhs) {}
+  std::string to_string() const {
+    return e1_.to_string() + " + " + e2_.to_string();
+  }
+  double eval() const {
+    return e1_.eval() + e2_.eval();
+  }
+private:
+  const Expr&amp; e1_; const Expr&amp; e2_;
+};
+</code></pre>
+<p>今度はメソッド追加のたびに、全ての実装に変更が必要</p>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-oopの場合（c）-1" class="anchor" href="#oopの場合（c）-1" aria-hidden="true"></a>OOPの場合（C++）</h3>
+<ul>
+<li><a href="https://cs.brown.edu/~sk/Publications/Papers/Published/kff-synth-fp-oo/">この場合visitorパターンを拡張して解決するらしい</a></li>
+<li>templateでもOK?</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-go" class="anchor" href="#go" aria-hidden="true"></a>Go</h3>
+<p><img src="./images/expression_problem.png" alt="Expression Problem"></p>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-go-1" class="anchor" href="#go-1" aria-hidden="true"></a>Go</h3>
+<ul>
+<li><code>type Minus</code> を追加したい場合は、別モジュールに <code>Evaler</code> と <code>Stringer</code> を追加すれば良い</li>
+<li>メソッド <code>String</code> を追加するのも、後から <code>interface</code> と実装を書いて埋め込むだけで済んでいる。
+<ul>
+<li>duck typing に則って、 <code>Evaler</code> かつ <code>Stringer</code> であれば、自動的に <code>Expr</code> となる。</li>
+</ul>
+</li>
+<li>操作の追加も構造の追加も、凝集度が高い</li>
+<li>後方互換性あり（なので今後実装される模様）</li>
+</ul>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section>
+            <h2><a id="user-content-5-まとめ" class="anchor" href="#5-まとめ" aria-hidden="true"></a>5. まとめ</h2>
+<ul>
+<li>どうGoにジェネリクスを導入するか
+<ul>
+<li>新しく contract を導入するのではなく</li>
+<li>既存の interface を拡張することで実現することを提案</li>
+</ul>
+</li>
+<li>Monomorphisation を初めて定式化
+<ul>
+<li>健全性や停止性などを軽量なモデル言語 featherweight go に対して証明</li>
+<li>ただし lead to explosion in code size.</li>
+</ul>
+</li>
+<li>後方互換性を保ちながらExpression Problemも解決</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h4><a id="user-content-そもそもジェネリクスの何が嬉しいか？" class="anchor" href="#そもそもジェネリクスの何が嬉しいか？" aria-hidden="true"></a>そもそもジェネリクスの何が嬉しいか？</h4>
+<ul>
+<li>Go でいろいろな型を受け取って同じようなことを処理するのが楽になる。
+<ul>
+<li>順序づけられる型に対する
+<ul>
+<li>sort, min, max など</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Reflection で実行時に型をいじったり、コード生成して解決していたものの一部が、型安全にネイティブの機能で実現できるようになる。</li>
+</ul>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-実際に試せる" class="anchor" href="#実際に試せる" aria-hidden="true"></a>実際に試せる</h3>
+<ul>
+<li>著者らによる実装
+<ul>
+<li><a href="https://github.com/rhu1/fgg/">https://github.com/rhu1/fgg/</a></li>
+</ul>
+</li>
+<li>公式のデモ（どこまで同じかは不明）</li>
+</ul>
+<p><a href="https://go2goplay.golang.org"><img src="./images/go2go.png" style="max-width:50%;background:white;" alt="go2go"></a></p>
+
+            </section>
+        
+            <section>
+                <h3><a id="user-content-future-works" class="anchor" href="#future-works" aria-hidden="true"></a>Future Works</h3>
+<ul>
+<li>.NET generics のように実行時型情報を使う手法との組み合わせ</li>
+<li>Bantamweight Go
+<ul>
+<li>assignments, arrays, slices, packages なども含めたモデル化</li>
+</ul>
+</li>
+<li>Cruiserweight Go
+<ul>
+<li>goroutines, message passing のモデル化</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        
+
+    </section>
     
 
 
@@ -325,7 +692,7 @@
         mouseWheel: false,
         hideAddressBar: true,
         previewLinks: false,
-        transition: 'default',
+        transition: 'convex',
         transitionSpeed: 'default',
         backgroundTransition: 'default',
         viewDistance: 3,
