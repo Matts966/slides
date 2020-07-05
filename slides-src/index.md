@@ -11,3 +11,5 @@
 [aktsk](./slides-src/aktsk-export/)
 
 [PRML](./slides-src/PRML/index/)
+
+[Featherweight Go](./slides-src/featherweighgo-export/)
