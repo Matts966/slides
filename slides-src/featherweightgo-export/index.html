@@ -272,7 +272,7 @@
     
         <section>
             
-            <h2><a id="user-content-featherweight-go" class="anchor" href="#featherweight-go" aria-hidden="true"></a>Featherweight Go</h2>
+            <h2><a id="user-content-featherweight-go" class="anchor" href="#featherweight-go" aria-hidden="true"></a><a href="https://arxiv.org/abs/2005.11710">Featherweight Go</a></h2>
 <p>Robert Griesemer, Raymond Hu, Wen Kokke, Julien Lange, Ian Lance Taylor, Bernardo Toninho, Philip Wadler, Nobuko Yoshida</p>
 
             </section>
@@ -330,9 +330,8 @@
         
             <section>
                 <h3><a id="user-content-from-rob-pike-to-one-of-the-authors" class="anchor" href="#from-rob-pike-to-one-of-the-authors" aria-hidden="true"></a>From Rob Pike to one of the authors</h3>
-<p><em>Would you be interested in helping us get polymorphism right (and/or figuring out what “right” means) for some future version of Go?</em></p>
-<p><em>This paper is our response to that question.</em></p>
-<p>↑ かっこいい</p>
+<p><strong>Rob Pike:</strong> <em>Would you be interested in helping us get polymorphism right (and/or figuring out what “right” means) for some future version of Go?</em></p>
+<p><strong>One of the authors:</strong> <em>This paper is our response to that question.</em></p>
 
             </section>
         
@@ -347,7 +346,7 @@
 <li>Philip Wadler （著者の一人）
 <ul>
 <li>Haskell の設計などで有名</li>
-<li>Expression Problem を指摘した人</li>
+<li>Expression Problem を指摘した</li>
 </ul>
 </li>
 </ul>
@@ -417,7 +416,7 @@ type empty struct {}
 </li>
 <li>著者ら
 <ul>
-<li>Featherweight Java の引用数が、その他の Complete なモデル化を行った研究よりも多いことを根拠として、 Featherweight Go の価値を主張</li>
+<li><a href="https://www.cis.upenn.edu/~bcpierce/papers/fj-toplas.pdf">Featherweight Java, Igarashi et al.</a> の引用数が、その他の Complete なモデル化を行った論文4つの合計数よりも多いことを根拠として、 Featherweight Go の価値を主張</li>
 </ul>
 </li>
 </ul>
@@ -446,8 +445,8 @@ type empty struct {}
                 <h3><a id="user-content-証明された性質" class="anchor" href="#証明された性質" aria-hidden="true"></a>証明された性質</h3>
 <p>いろいろあるが…</p>
 <ul>
-<li>健全性</li>
-<li>停止性
+<li>型の健全性（型安全性）</li>
+<li>単一化可能性（停止性）
 <ul>
 <li>単一化不可能であれば、そう返して終了することができることを証明</li>
 </ul>
@@ -463,7 +462,7 @@ type empty struct {}
 <ul>
 <li>polymorphic recursionと呼ばれる</li>
 <li>実行時までどれだけ型がネストするか不明</li>
-<li>論文では、 problematic polymorphic recursion が存在しなければ、単一化可能なことも証明している。</li>
+<li>論文では、 problematic polymorphic recursion が存在しなければ、単一化可能なことを証明している。</li>
 </ul>
 
             </section>
@@ -558,10 +557,10 @@ private:
             <section>
                 <h3><a id="user-content-go-1" class="anchor" href="#go-1" aria-hidden="true"></a>Go</h3>
 <ul>
-<li><code>type Minus</code> を追加したい場合は、別モジュールに <code>Evaler</code> と <code>Stringer</code> を追加すれば良い</li>
+<li><code>type Minus</code> を追加したい場合は、別モジュールに構造体と <code>Eval</code> と <code>String</code> メソッドを追加すれば良い</li>
 <li>メソッド <code>String</code> を追加するのも、後から <code>interface</code> と実装を書いて埋め込むだけで済んでいる。
 <ul>
-<li>duck typing に則って、 <code>Evaler</code> かつ <code>Stringer</code> であれば、自動的に <code>Expr</code> となる。</li>
+<li>duck typing に則って、 <code>Evaler</code> かつ <code>Stringer</code> であれば、自動的に <code>Expr</code></li>
 </ul>
 </li>
 <li>操作の追加も構造の追加も、凝集度が高い</li>
@@ -590,7 +589,7 @@ private:
 <li>Monomorphisation を初めて定式化
 <ul>
 <li>健全性や停止性などを軽量なモデル言語 featherweight go に対して証明</li>
-<li>ただし lead to explosion in code size.</li>
+<li>ただし lead to <strong>explosion in code size.</strong></li>
 </ul>
 </li>
 <li>後方互換性を保ちながらExpression Problemも解決</li>
@@ -912,8 +911,6 @@ private:
 
 
 </script>
-
-
 
 
 

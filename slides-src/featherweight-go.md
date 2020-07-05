@@ -5,7 +5,7 @@ highlightTheme: "darkula"
 title: "Featherweight Go"
 ---
 
-## Featherweight Go
+## [Featherweight Go](https://arxiv.org/abs/2005.11710)
 
 Robert Griesemer, Raymond Hu, Wen Kokke, Julien Lange, Ian Lance Taylor, Bernardo Toninho, Philip Wadler, Nobuko Yoshida
 
@@ -38,11 +38,9 @@ Robert Griesemer, Raymond Hu, Wen Kokke, Julien Lange, Ian Lance Taylor, Bernard
 
 ### From Rob Pike to one of the authors
 
-*Would you be interested in helping us get polymorphism right (and/or figuring out what “right” means) for some future version of Go?*
+**Rob Pike:** *Would you be interested in helping us get polymorphism right (and/or figuring out what “right” means) for some future version of Go?*
 
-*This paper is our response to that question.* 
-
-↑ かっこいい
+**One of the authors:** *This paper is our response to that question.* 
 
 --
 
@@ -52,7 +50,7 @@ Robert Griesemer, Raymond Hu, Wen Kokke, Julien Lange, Ian Lance Taylor, Bernard
   - Unix, UTF-8, Go などの作者として有名
 - Philip Wadler （著者の一人）
   - Haskell の設計などで有名
-  - Expression Problem を指摘した人
+  - Expression Problem を指摘した
 
 --
 
@@ -111,7 +109,7 @@ type empty struct {}
 - レビュワー
   - できるだけ多くの機能をモデル化(Complete)した方が、機能の直交性なども分析できて良いのでは？
 - 著者ら
-  - Featherweight Java の引用数が、その他の Complete なモデル化を行った研究よりも多いことを根拠として、 Featherweight Go の価値を主張
+  - [Featherweight Java, Igarashi et al.](https://www.cis.upenn.edu/~bcpierce/papers/fj-toplas.pdf) の引用数が、その他の Complete なモデル化を行った論文4つの合計数よりも多いことを根拠として、 Featherweight Go の価値を主張
 
 ---
 
@@ -126,8 +124,8 @@ type empty struct {}
 ### 証明された性質
 
 いろいろあるが...
-- 健全性
-- 停止性
+- 型の健全性（型安全性）
+- 単一化可能性（停止性）
   - 単一化不可能であれば、そう返して終了することができることを証明
 - C++, ML, .NET, Rust などで使われるポピュラーなものだが、今回初めて定式化された。
 
@@ -139,7 +137,7 @@ type empty struct {}
 
 - polymorphic recursionと呼ばれる
 - 実行時までどれだけ型がネストするか不明
-- 論文では、 problematic polymorphic recursion が存在しなければ、単一化可能なことも証明している。
+- 論文では、 problematic polymorphic recursion が存在しなければ、単一化可能なことを証明している。
 
 ---
 
@@ -225,9 +223,9 @@ private:
 
 ### Go
 
-- `type Minus` を追加したい場合は、別モジュールに `Evaler` と `Stringer` を追加すれば良い
+- `type Minus` を追加したい場合は、別モジュールに構造体と `Eval` と `String` メソッドを追加すれば良い
 - メソッド `String` を追加するのも、後から `interface` と実装を書いて埋め込むだけで済んでいる。
-  - duck typing に則って、 `Evaler` かつ `Stringer` であれば、自動的に `Expr` となる。
+  - duck typing に則って、 `Evaler` かつ `Stringer` であれば、自動的に `Expr`
 - 操作の追加も構造の追加も、凝集度が高い
 - 後方互換性あり（なので今後実装される模様）
 
@@ -240,7 +238,7 @@ private:
   - 既存の interface を拡張することで実現することを提案
 - Monomorphisation を初めて定式化
   - 健全性や停止性などを軽量なモデル言語 featherweight go に対して証明
-  - ただし lead to explosion in code size.
+  - ただし lead to **explosion in code size.**
 - 後方互換性を保ちながらExpression Problemも解決
 
 --
