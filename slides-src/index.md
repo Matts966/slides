@@ -1,3 +1,10 @@
+---
+theme : "night"
+transition: "convex"
+highlightTheme: "darkula"
+title: "Featherweight Go"
+---
+
 # Slides
 
 [intro](./slides-src/intro-export/)
@@ -12,4 +19,4 @@
 
 [PRML](./slides-src/PRML/index/)
 
-[Featherweight Go](./slides-src/featherweighgo-export/)
+[Featherweight Go](./slides-src/featherweightgo-export/)
