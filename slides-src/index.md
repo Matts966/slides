@@ -17,6 +17,6 @@ title: "Table of Contents"
 
 [aktsk](./slides-src/aktsk-export/)
 
-[PRML](./slides-src/PRML/index/)
+[PRML](./slides-src/PRML/)
 
 [Featherweight Go](./slides-src/featherweightgo-export/)
